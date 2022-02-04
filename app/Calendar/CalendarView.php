@@ -40,4 +40,29 @@ class CalendarView {
         ];
 		return implode("", $html);
 	}
+
+	/**
+	 * 週カレンダーを一月分用意
+	 */
+	protected function getweeks(){
+		$weeks = [];
+
+		$firstDay = $this->carbon->copy()->firstOfMonth();
+		$lastDay = $this->carbon->copy()->lastOfMonth();
+
+		$week = new CalendarWeek($firstDay->copy()); //CalendarWeekはその週のカレンダーを出力するクラス。（CalendarWeek.php参照）
+		$weeks[] = $week;
+
+		$tmpDay = $firstDay->copy()->addDay(7)->startOfWeek(); //初日の翌週の月曜日
+
+		while($tmpDay->lte($lastDay))
+		{
+			$week = new CalendarWeek($tmpDay, count($weeks)); //count関数...要素の数を返す。一回目のループは 1.
+			$weeks[] = $week;
+
+			$tmpDay->addDay(7);
+		}
+
+		return $weeks;
+	}
 }

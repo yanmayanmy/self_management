@@ -14,8 +14,8 @@ use App\Http\Controllers\BookController; //ルーティングで使いたいコ�
 |
 */
 
-Route::get('/', 'BookController@index'); //ルートページの変更
-Route::get('/books', 'BookController@index')->name('books');
+Route::get("/", [App\Http\Controllers\BookController::class, 'index']); //ルートページの変更
+Route::get("/books", [App\Http\Controllers\BookController::class, 'index'])->name('books');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
