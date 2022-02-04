@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookController; //ルーティングで使いたいコントローラの宣言
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +14,5 @@ use App\Http\Controllers\BookController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get("/books", [App\Http\Controllers\BookController::class, 'index'])->name('books');
+Route::get('/', 'BookController@index'); //ルートページの変更
+Route::get('/books', 'BookController@index')->name('books');
