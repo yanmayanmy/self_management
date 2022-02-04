@@ -16,3 +16,6 @@ use App\Http\Controllers\BookController; //ルーティングで使いたいコ�
 
 Route::get('/', 'BookController@index'); //ルートページの変更
 Route::get('/books', 'BookController@index')->name('books');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
