@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Calendar;
-
 use Carbon\Carbon;
 
 class CalendarWeekDay
@@ -23,6 +21,6 @@ class CalendarWeekDay
 	 */
     function render()
     {
-        return '<p class="day">' . $this->carbon->format("j") . '</p>'; // j ... 0なしの日付
+        return '<p class="day">' . $this->carbon->format("j"). '</p>'; // j ... 0なしの日付
     }
 }

@@ -18,7 +18,7 @@
                 <td>{{ $book->required_time }}</td>
             </tr>
             @endforeach
-            </table>
+        </table>
 
             <div class="container">
                 <div class="row justify-content-center">

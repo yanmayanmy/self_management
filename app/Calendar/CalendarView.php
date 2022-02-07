@@ -34,26 +34,44 @@ class CalendarView {
             '<th>土</th>',
             '<th>日</th>',
             '</tr>',
-            '</thead>',
-            '</table>',
-            '</div>'
+            '</thead>'
         ];
+
+
+		$html[] = '<tbody>';
+
+		$weeks = $this->getWeeks();
+		foreach($weeks as $week){
+			$html[] = '<tr class="' .$week->getClassName(). '">';
+			$days = $week->getDays();
+			foreach($days as $day){
+				$html[] = '<td class="' .$day->getClassName(). '">';
+				$html[] = $day->render();
+				$html[] = '</td>';
+			}
+			$html[] = '</tr>';
+		}
+
+		$html[] = '</tbody>';
+
+        $html[] = '</table>';
+		$html[] = '</div>';
 		return implode("", $html);
 	}
 
 	/**
-	 * 週カレンダーを一月分用意
+	 * @return CalendarWeek[]
 	 */
 	protected function getweeks(){
 		$weeks = [];
 
-		$firstDay = $this->carbon->copy()->firstOfMonth();
-		$lastDay = $this->carbon->copy()->lastOfMonth();
+		$firstDay = $this->carbon->copy()->firstOfMonth(); //Carbonにtime関数で入力された現在時刻のタイプスタンプをもとに月初日の情報をコピー
+		$lastDay = $this->carbon->copy()->lastOfMonth(); //月末日の情報をコピー
 
 		$week = new CalendarWeek($firstDay->copy()); //CalendarWeekはその週のカレンダーを出力するクラス。（CalendarWeek.php参照）
 		$weeks[] = $week;
 
-		$tmpDay = $firstDay->copy()->addDay(7)->startOfWeek(); //初日の翌週の月曜日
+		$tmpDay = $firstDay->copy()->addDay(7)->startOfWeek(); //初日の翌週の"月曜日"
 
 		while($tmpDay->lte($lastDay))
 		{
