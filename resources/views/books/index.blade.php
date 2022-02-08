@@ -1,8 +1,10 @@
 @extends('layouts.layouts')
 
 @section('content')
-    <h1>To Do</h1>
-        <table>
+<div class="container">
+    <h1 class="p-3">To Do List</h1>
+    <div class="container">
+        <table class="table table-striped">
             <tr>
                 <td>Title</td>
                 <td>Due Date</td>
@@ -19,17 +21,17 @@
             </tr>
             @endforeach
         </table>
+    </div>
 
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header">{{ $calendar->getTitle() }}</div>
-                            <div class="card-body">
-                                    {!! $calendar->render() !!}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                {{ $calendar->getTitle() }}
             </div>
+            <div class="card-body">
+                {!! $calendar->render() !!}
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
