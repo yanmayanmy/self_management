@@ -1,14 +1,16 @@
 <?php
 namespace App\Calendar;
-
+use App\Models\Book;
 use Carbon\Carbon;
 
 class CalendarView {
 
 	private $carbon;
+	private $book;
 
-	function __construct($date){
+	function __construct($date, $book){
 		$this->carbon = new Carbon($date);
+		$this->book = $book;
 	}
 	/**
 	 * タイトル
@@ -47,6 +49,10 @@ class CalendarView {
 			foreach($days as $day){
 				$html[] = '<td class="' .$day->getClassName(). '">';
 				$html[] = $day->render();
+				$html[] = '<ul>';
+				$html[] = '<li>';
+				$html[] = '</li>';
+				$html[] = '</ul>';
 				$html[] = '</td>';
 			}
 			$html[] = '</tr>';
@@ -62,7 +68,7 @@ class CalendarView {
 	/**
 	 * @return CalendarWeek[]
 	 */
-	protected function getweeks(){
+	protected function getWeeks(){
 		$weeks = [];
 
 		$firstDay = $this->carbon->copy()->firstOfMonth(); //Carbonにtime関数で入力された現在時刻のタイプスタンプをもとに月初日の情報をコピー

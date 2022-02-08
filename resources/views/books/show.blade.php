@@ -1,0 +1,39 @@
+@extends('layouts.layouts')
+
+@section('content')
+<div class="container">
+    <h1 class="p-3">To Do List</h1>
+
+    <!-- List -->
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <td>Title</td>
+                <td>{{ $book->title }}</td>
+            </tr>
+            <tr>
+                <td>Deadline</td>
+                <td>{{ $book->deadline }}</td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td>{{ $book->category }}</td>
+            </tr>
+            <tr>
+                <td>Time required</td>
+                <td>{{ $book->time_required }}</td>
+            </tr>
+        </table>
+        <a href="{{ route('books.index') }}" class="btn btn-secondary">戻る</a>
+        <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">編集</a>
+    </div>
+
+    <!-- debug -->
+    <?php
+        //echo('<pre>');
+        //var_dump($calendar->carbon->month);
+        //echo('</pre>');
+    ?>
+    
+</div>
+@endsection

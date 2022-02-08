@@ -15,7 +15,11 @@ use App\Http\Controllers\BookController; //ルーティングで使いたいコ�
 */
 
 Route::get("/", [App\Http\Controllers\BookController::class, 'index']); //ルートページの変更
-Route::get("/books", [App\Http\Controllers\BookController::class, 'index'])->name('books');
+Route::get("/books", [App\Http\Controllers\BookController::class, 'index'])->name('books.index');
+Route::post("/books", [App\Http\Controllers\BookController::class, 'store'])->name('books.store');
+Route::get("/books/create", [App\Http\Controllers\BookController::class, 'create'])->name('books.create');
+Route::get("/books/{book}", [App\Http\Controllers\BookController::class, 'show'])->name('books.show');
+Route::get("/books/{book}/edit", [App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
