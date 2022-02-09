@@ -6,11 +6,11 @@ use Carbon\Carbon;
 class CalendarView {
 
 	private $carbon;
-	private $book;
+	private $books;
 
-	function __construct($date, $book){
+	function __construct($date, $books){
 		$this->carbon = new Carbon($date);
-		$this->book = $book;
+		$this->books = $books;
 	}
 	/**
 	 * タイトル
@@ -50,8 +50,17 @@ class CalendarView {
 				$html[] = '<td class="' .$day->getClassName(). '">';
 				$html[] = $day->render();
 				$html[] = '<ul>';
-				$html[] = '<li>';
-				$html[] = '</li>';
+				foreach($this->books as $book){
+					if($book->deadline != NULL){
+						$date = $book->deadline->setTime(0, 0, 0);
+						if($date == $day->render_obj()){
+							$html[] = '<li>';
+							$html[] = $book->title;
+							$html[] = '</li>';
+						}
+					}
+				}
+
 				$html[] = '</ul>';
 				$html[] = '</td>';
 			}
