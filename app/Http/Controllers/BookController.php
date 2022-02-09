@@ -41,5 +41,30 @@ class BookController extends Controller
         $book->save();
 
         return redirect()->route('books.show', $book);
+        
+        //debug
+        // return view('layouts.layouts');
+    }
+
+    function update(Request $req, Book $book){
+        // dd($book);
+        
+        $book->title = $req->input('title');
+        $book->detail = $req->input('detail');
+        $book->deadline = $req->input('deadline');
+        $book->category = $req->input('category');
+        $book->priority = $req->input('priority');
+        $book->time_required = $req->input('time_required');
+        $book->save();
+
+        return redirect()->route('books.show', $book);
+
+        //debug
+        // return view('layouts.layouts');
+    }
+
+    function destroy(Book $book){
+        $book->delete();
+        return redirect()->route('books.index');
     }
 }

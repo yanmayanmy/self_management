@@ -13,7 +13,7 @@
             </tr>
             <tr>
                 <td>Deadline</td>
-                <td>{{ $book->deadline }}</td>
+                <td>{{ ($book->deadline != NULL) ? $book->deadline->format('Y/M/d H:i') : NULL }}</td>
             </tr>
             <tr>
                 <td>Category</td>
@@ -30,9 +30,9 @@
 
     <!-- debug -->
     <?php
-        //echo('<pre>');
-        //var_dump($calendar->carbon->month);
-        //echo('</pre>');
+        // echo('<pre>');
+        // var_dump($book->deadline);
+        // echo('</pre>');
     ?>
     
 </div>

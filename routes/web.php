@@ -19,6 +19,8 @@ Route::get("/books", [App\Http\Controllers\BookController::class, 'index'])->nam
 Route::post("/books", [App\Http\Controllers\BookController::class, 'store'])->name('books.store');
 Route::get("/books/create", [App\Http\Controllers\BookController::class, 'create'])->name('books.create');
 Route::get("/books/{book}", [App\Http\Controllers\BookController::class, 'show'])->name('books.show');
+Route::patch("/books/{book}", [App\Http\Controllers\BookController::class, 'update'])->name('books.update');
+Route::delete("/books/{book}", [App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
 Route::get("/books/{book}/edit", [App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
 Auth::routes();
 
