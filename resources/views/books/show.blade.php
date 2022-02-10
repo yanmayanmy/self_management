@@ -12,6 +12,10 @@
                 <td>{{ $book->title }}</td>
             </tr>
             <tr>
+                <td>Detail</td>
+                <td>{{ $book->detail }}</td>
+            </tr>
+            <tr>
                 <td>Deadline</td>
                 <td>{{ ($book->deadline != NULL) ? $book->deadline->format('Y/M/d H:i') : NULL }}</td>
             </tr>
@@ -24,8 +28,13 @@
                 <td>{{ $book->time_required }}</td>
             </tr>
         </table>
-        <a href="{{ route('books.index') }}" class="btn btn-secondary">戻る</a>
-        <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">編集</a>
+        <a href="{{ route('books.index') }}" class="btn btn-secondary">Top</a>
+        <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">Edit</a>
+        <form action="/books/{{ $book->id }}" method="POST" style="display: inline;">
+            @method("DELETE")
+            @csrf
+            <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
+        </form>
     </div>
 
     <!-- debug -->

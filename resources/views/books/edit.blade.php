@@ -5,13 +5,17 @@
     <h1 class="p-3">Edit</h1>
 
     <!-- List -->
-    <div class="container">
-        <form action="/books/{{ $book->id }}" method="POST">
+    <div class="container" id="edit">
+        <form action="/books/{{ $book->id }}" method="POST" class="edit-form">
             @csrf
             @method("PATCH")
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" name="title" class="form-control" value="{{ $book->title }}">
+            </div>
+            <div class="form-group">
+                <label for="detail">detail</label>
+                <input type="text" name="detail" class="form-control" value="{{ $book->detail }}">
             </div>
             <div class="form-group">
                 <label for="deadline">Deadline</label>
@@ -26,10 +30,10 @@
                 <input type="text" name="time_required" class="form-control" value="{{ $book->time_required }}">
             </div>
             
-            <button type="submit" class="btn btn-primary m-2">ADD</button>
-            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
-        </form>
-
+            <div class="button">
+                <button type="submit" class="btn btn-primary">Apply</button>
+                <a href="{{ route('books.index') }}" class="btn btn-secondary">Back</a>
+            </div>
     </div>
 
     <!-- debug -->

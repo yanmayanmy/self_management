@@ -6,7 +6,7 @@
 
     <!-- List -->
     <div class="container">
-    <td><a href="{{ route('books.create') }}" class="btn btn-success btn-lg m-2">追加</a></td>
+    <td><a href="{{ route('books.create') }}" class="btn btn-success btn-lg m-2">+Task</a></td>
 
         <table class="table table-striped">
             <tr>
@@ -24,12 +24,12 @@
                 <td>{{ $book->category }}</td>
                 <td>{{ $book->time_required }}</td>
                 <td>
-                    <a href="{{ route('books.show', $book) }}" class="btn btn-info">詳細</a>
-                    <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">編集</a>
+                    <a href="{{ route('books.show', $book) }}" class="btn btn-info">More</a>
+                    <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">Edit</a>
                     <form action="/books/{{ $book->id }}" method="POST" style="display: inline;">
                         @method("DELETE")
                         @csrf
-                        <button type="submit" class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>削除</button>
+                        <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
                     </form>
                 </td>
             </tr>

@@ -24,17 +24,17 @@ class CalendarView {
 	 */
 	function render(){
 		$html = [
-            '<div class="calendar">',
+            '<div id="calendar">',
             '<table class="table">',
             '<thead>',
             '<tr>',
-            '<th>月</th>',
-            '<th>火</th>',
-            '<th>水</th>',
-            '<th>木</th>',
-            '<th>金</th>',
-            '<th>土</th>',
-            '<th>日</th>',
+            '<th>Mon</th>',
+            '<th>Tue</th>',
+            '<th>Wed</th>',
+            '<th>Thu</th>',
+            '<th>Fri</th>',
+            '<th>Sat</th>',
+            '<th>Sun</th>',
             '</tr>',
             '</thead>'
         ];
@@ -44,7 +44,7 @@ class CalendarView {
 
 		$weeks = $this->getWeeks();
 		foreach($weeks as $week){
-			$html[] = '<tr class="' .$week->getClassName(). '">';
+			$html[] = '<tr class="week ' .$week->getClassName(). '">';
 			$days = $week->getDays();
 			foreach($days as $day){
 				$html[] = '<td class="' .$day->getClassName(). '">';
@@ -52,8 +52,8 @@ class CalendarView {
 				$html[] = '<ul>';
 				foreach($this->books as $book){
 					if($book->deadline != NULL){
-						$date = $book->deadline->setTime(0, 0, 0);
-						if($date == $day->render_obj()){
+						$date = $book->deadline->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
+						if($date == $day->render_carbon()){
 							$html[] = '<li>';
 							$html[] = $book->title;
 							$html[] = '</li>';

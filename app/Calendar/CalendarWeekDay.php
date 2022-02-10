@@ -24,7 +24,7 @@ class CalendarWeekDay
         return '<p class="day">' . $this->carbon->format("j"). '</p>'; // j ... 0なしの日付
     }
 
-    function render_obj()
+    function render_carbon()
     {
         return $this->carbon;
     }

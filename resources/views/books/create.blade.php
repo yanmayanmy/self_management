@@ -13,6 +13,10 @@
                 <input type="text" name="title" class="form-control">
             </div>
             <div class="form-group">
+                <label for="detail">Detail</label>
+                <input type="textarea" name="detail" class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="deadline">Deadline</label>
                 <input type="datetime-local" name="deadline" class="form-control">
             </div>
