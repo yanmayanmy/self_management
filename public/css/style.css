@@ -42,3 +42,19 @@ Show
 /*************************************
 Create
 *************************************/
+
+
+
+/*************************************
+Footer
+*************************************/
+footer {
+    background-color: #EBEDEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: #000;
+}

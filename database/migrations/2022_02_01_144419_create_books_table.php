@@ -15,15 +15,15 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('project_id')->nullable();
             $table->string("title", 100);
             $table->string("detail")->nullable();
-            $table->string("category")->nullable();
-            //category table を別に用意して、任意でカテゴリを追加可にしたい。
-            $table->datetime("deadline")->nullable();
+            $table->string("category")->nullable(); //category table を別に用意して、任意でカテゴリを追加可にしたい。後回しでいいかも
+            $table->datetime("start_time")->nullable();
+            $table->datetime("end_time")->nullable();
             $table->integer("priority")->nullable();
             // 優先度は相対的に決めたい。最初に入力した予定の優先度を0として、その予定基準で優先度を決めれる機能を実装する予定。
             //if(Book::all() == null) ? first_schedule() : schedule(); 的な
-            $table->integer("time_required")->nullable();
             $table->timestamps();
         });
     }

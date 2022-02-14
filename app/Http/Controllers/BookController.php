@@ -22,17 +22,36 @@ class BookController extends Controller
     }
 
     public function create(){
-        return view('books.create');
+        return view('books.create_task');
     }
 
     function edit(Book $book){
         return view('books.edit', compact("book"));
     }
 
-    function store(Request $req){
+    function storeSchedule(Request $req){
         // dd($book);
         $book = new Book();
         $book->title = $req->input('title');
+        $book->project_id = $req->input('project_id');
+        $book->detail = $req->input('detail');
+        $book->deadline = $req->input('deadline');
+        $book->category = $req->input('category');
+        $book->priority = $req->input('priority');
+        $book->start_time = $req->input('start_time');
+        $book->end_time = $req->input('end_time');
+        $book->save();
+
+        return redirect()->route('books.show', $book);
+        
+        //debug
+        // return view('layouts.layouts');
+    }
+    function storeTask(Request $req){
+        // dd($book);
+        $book = new Book();
+        $book->title = $req->input('title');
+        $book->project_id = $req->input('project_id');
         $book->detail = $req->input('detail');
         $book->deadline = $req->input('deadline');
         $book->category = $req->input('category');

@@ -17,7 +17,8 @@ use App\Http\Controllers\BookController; //ルーティングで使いたいコ�
 Route::get("/", [App\Http\Controllers\BookController::class, 'index']); //ルートページの変更
 Route::get("/books", [App\Http\Controllers\BookController::class, 'index'])->name('books.index');
 Route::post("/books", [App\Http\Controllers\BookController::class, 'store'])->name('books.store');
-Route::get("/books/create", [App\Http\Controllers\BookController::class, 'create'])->name('books.create');
+Route::get("/books/create/schedule", [App\Http\Controllers\BookController::class, 'createSchedule'])->name('books.create.schedule');
+Route::get("/books/create/task", [App\Http\Controllers\BookController::class, 'createTask'])->name('books.create.task');
 Route::get("/books/{book}", [App\Http\Controllers\BookController::class, 'show'])->name('books.show');
 Route::patch("/books/{book}", [App\Http\Controllers\BookController::class, 'update'])->name('books.update');
 Route::delete("/books/{book}", [App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');

@@ -14,5 +14,9 @@
 </head>
 <body>
     @yield('content')
+
+    <footer>
+        <p>&copy; Yuta Yamauchi</p>
+    </footer>
 </body>
 </html>
