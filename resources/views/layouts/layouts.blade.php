@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-    @yield('content')
-
+    <main>
+        @yield('content')
+    </main>
     <footer>
         <p>&copy; Yuta Yamauchi</p>
     </footer>

@@ -20,12 +20,20 @@
                 <td>{{ ($book->deadline != NULL) ? $book->deadline->format('Y/M/d H:i') : NULL }}</td>
             </tr>
             <tr>
+                <td>Start time</td>
+                <td>{{ ($book->start_time != NULL) ? $book->start_time->format('Y/M/d H:i') : NULL }}</td>
+            </tr>
+            <tr>
+                <td>End time</td>
+                <td>{{ ($book->end_time != NULL) ? $book->end_time->format('Y/M/d H:i') : NULL }}</td>
+            </tr>
+            <tr>
                 <td>Category</td>
                 <td>{{ $book->category }}</td>
             </tr>
             <tr>
                 <td>Time required</td>
-                <td>{{ $book->time_required }}</td>
+                <td>{{ ($book->time_required != NULL) ? $book->time_required : NULL }}</td>
             </tr>
         </table>
         <a href="{{ route('books.index') }}" class="btn btn-secondary">Top</a>

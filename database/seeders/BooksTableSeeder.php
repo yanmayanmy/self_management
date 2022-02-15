@@ -14,9 +14,10 @@ class BooksTableSeeder extends Seeder
      */
     public function run()
     {
-        Book::create(['title'=>'Drum', 'detail'=>'Top to C', 'category'=>'Music','start_time'=>'2022/02/01 03:04:05', 'end_time'=>'2022/02/01 03:04:05', 'priority'=>100, 'time_required'=>180]);
-        Book::create(['title'=>'Piano', 'detail'=>'Hannon #1', 'category'=>'Music','start_time'=>'2022/02/02 03:04:05', 'end_time'=>'2022/02/05 03:04:05', 'priority'=>99, 'time_required'=>60]);
-        Book::create(['title'=>'Build an web app', 'detail'=>'Commit sth', 'category'=>'Programming','start_time'=>'2022/02/03 03:04:05', 'end_time'=>'2022/02/05 03:04:05', 'priority'=>101, 'time_required'=>240]);
-        Book::create(['title'=>'Finish making prototype', 'detail'=>'', 'category'=>'Programming','start_time'=>'2022/02/28 23:59:59', 'end_time'=>'2022/03/01 03:04:05', 'priority'=>101, 'time_required'=>600]);
+        Book::create(['title'=>'Drum', 'detail'=>'Top to C', 'category'=>'Music','start_time'=>'2022/02/01 03:04:05', 'end_time'=>'2022/02/01 03:04:05', 'priority'=>100]);
+        Book::create(['title'=>'Piano', 'detail'=>'Hannon #1', 'category'=>'Music','start_time'=>'2022/02/02 03:04:05', 'end_time'=>'2022/02/05 03:04:05', 'priority'=>99]);
+        Book::create(['title'=>'Build an web app', 'detail'=>'Commit sth', 'category'=>'Programming','start_time'=>'2022/02/03 03:04:05', 'end_time'=>'2022/02/05 03:04:05', 'priority'=>101]);
+        Book::create(['title'=>'Finish making prototype', 'detail'=>'', 'category'=>'Programming','start_time'=>'2022/02/28 23:59:59', 'end_time'=>'2022/03/01 03:04:05', 'priority'=>101]);
+        Book::create(['title'=>'Rehearsal', 'detail'=>'MCM', 'category'=>'Marching','start_time'=>'2022/02/4 19:00:00', 'end_time'=>'2022/02/06 14:00:00', 'priority'=>1000]);
     }
 }

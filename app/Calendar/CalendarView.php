@@ -50,7 +50,18 @@ class CalendarView {
 				$html[] = '<td class="' .$day->getClassName(). '">';
 				$html[] = $day->render();
 				$html[] = '<ul>';
-				foreach($this->books as $book){
+				foreach($this->books['schedules'] as $book){
+					if($book->start_time != NULL){
+						$startDate = $book->start_time->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
+						$endDate = $book->end_time->setTime(0, 0, 0);
+						if($day->render_carbon()->gte($startDate) && $day->render_carbon()->lte($endDate)){
+							$html[] = '<li>';
+							$html[] = $book->title;
+							$html[] = '</li>';
+						}
+					}
+				}
+				foreach($this->books['tasks'] as $book){
 					if($book->deadline != NULL){
 						$date = $book->deadline->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
 						if($date == $day->render_carbon()){

@@ -6,68 +6,74 @@
 
     <!-- List -->
     <div class="container">
-        <a href="{{ route('books.create') }}" class="btn btn-success btn-lg m-2">+Schedule</a>
-        <a href="{{ route('books.create') }}" class="btn btn-success btn-lg m-2">+Task</a>
+        <a href="{{ route('books.create') }}" class="btn btn-success btn-lg m-2">+Add</a>
 
-        <h2>Schedule</h2>
+        <h2>Schedules</h2>
         <table class="table table-striped">
-            <tr>
-                <td>Title</td>
-                <td>Start time</td>
-                <td>End time</td>
-                <td>Category</td>
-                <td>Time required(min)</td>
-                <td></td>
-            </tr>
-                
-            @foreach($books as $book)
-            <tr>
-                <td>{{ $book->title }}</td>
-                <td>{{ $book->start_time }}</td>
-                <td>{{ $book->end_time }}</td>
-                <td>{{ $book->start_time }}</td>
-                <td>{{ $book->category }}</td>
-                <td>{{ $book->time_required }}</td>
-                <td>
-                    <a href="{{ route('books.show', $book) }}" class="btn btn-info">More</a>
-                    <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">Edit</a>
-                    <form action="/books/{{ $book->id }}" method="POST" style="display: inline;">
-                        @method("DELETE")
-                        @csrf
-                        <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Start time</th>
+                    <th scope="col">End time</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Time required(min)</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach($books as $book)
+                <tr>
+                    <td>{{ $book->title }}</td>
+                    <td>{{ $book->start_time }}</td>
+                    <td>{{ $book->end_time }}</td>
+                    <td>{{ $book->category }}</td>
+                    <td>{{ $book->time_required }}</td>
+                    <td>
+                        <a href="{{ route('books.show', $book) }}" class="btn btn-info">More</a>
+                        <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">Edit</a>
+                        <form action="/books/{{ $book->id }}" method="POST" style="display: inline;">
+                            @method("DELETE")
+                            @csrf
+                            <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
         </table>
 
-        <h2>Task</h2>
+        <h2>Tasks</h2>
         <table class="table table-striped">
-            <tr>
-                <td>Title</td>
-                <td>Deadline</td>
-                <td>Category</td>
-                <td>Time required(min)</td>
-                <td></td>
-            </tr>
-                
-            @foreach($books as $book)
-            <tr>
-                <td>{{ $book->title }}</td>
-                <td>{{ ($book->deadline != NULL) ? $book->deadline->format('Y/M/d H:i') : NULL }}</td>
-                <td>{{ $book->category }}</td>
-                <td>{{ $book->time_required }}</td>
-                <td>
-                    <a href="{{ route('books.show', $book) }}" class="btn btn-info">More</a>
-                    <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">Edit</a>
-                    <form action="/books/{{ $book->id }}" method="POST" style="display: inline;">
-                        @method("DELETE")
-                        @csrf
-                        <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Time required(min)</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach($tasks as $task)
+                <tr>
+                    <td>{{ $task->title }}</td>
+                    <td>{{ ($task->deadline != NULL) ? $task->deadline->format('Y/M/d H:i') : NULL }}</td>
+                    <td>{{ $task->category }}</td>
+                    <td>{{ $task->time_required }}</td>
+                    <td>
+                        <a href="{{ route('books.show', $book) }}" class="btn btn-info">More</a>
+                        <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">Edit</a>
+                        <form action="/books/{{ $book->id }}" method="POST" style="display: inline;">
+                            @method("DELETE")
+                            @csrf
+                            <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
         </table>
 
     </div>
@@ -81,7 +87,7 @@
     ?>
 
     <!-- Calendar -->
-    <div class="container">
+    <div class="container mb-3">
         <div class="card">
             <div class="card-header">
                 {{ $calendar->getTitle() }}

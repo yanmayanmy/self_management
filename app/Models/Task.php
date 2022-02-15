@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Task extends Model
 {
     use HasFactory;
 
-    protected $dates = [
-        'start_time',
-        'end_time'
-    ];
+    protected $dates = ['deadline'];
+
 }
