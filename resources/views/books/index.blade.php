@@ -16,7 +16,6 @@
                     <th scope="col">Start time</th>
                     <th scope="col">End time</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Time required(min)</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -63,9 +62,9 @@
                     <td>{{ $task->category }}</td>
                     <td>{{ $task->time_required }}</td>
                     <td>
-                        <a href="{{ route('books.show', $book) }}" class="btn btn-info">More</a>
-                        <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">Edit</a>
-                        <form action="/books/{{ $book->id }}" method="POST" style="display: inline;">
+                        <a href="{{ route('tasks.show', $task) }}" class="btn btn-info">More</a>
+                        <a href="{{ route('tasks.edit', $task) }}" class="btn btn-warning">Edit</a>
+                        <form action="/tasks/{{ $task->id }}" method="POST" style="display: inline;">
                             @method("DELETE")
                             @csrf
                             <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
@@ -80,10 +79,12 @@
 
     <!-- debug -->
     <?php
-        // echo('<pre>');
-        // var_dump($book->deadline);
-        // var_dump($book->time_required);
-        // echo('</pre>');
+                // echo('<pre>');
+                // var_dump($book);
+                // var_dump($task);
+                // echo('</pre>');
+                // if($book instanceof App\Models\Book){echo "True";}else{echo "False";}
+                // if($task instanceof App\Models\Task){echo "True";}else{echo "False";}
     ?>
 
     <!-- Calendar -->

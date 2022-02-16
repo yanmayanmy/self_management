@@ -25,57 +25,48 @@ class BookController extends Controller
         return view('books.index', compact("books", "tasks", "calendar"));
     }
 
-    function show($book){
+    function show(Book $book){
         // dd($book);
-        return view('books.show', compact("book"));
+        $info = $book;
+        return view('books.show', compact("info"));
     }
 
     public function create(){
         return view('books.create');
     }
 
-    function edit(Book $book){
-        return view('books.edit', compact("book"));
+    function edit(Book $book, Task $task){
+        $info = $book;
+
+        return view('books.edit', compact("info"));
     }
 
     function store(Request $req){
         // dd($book);
-        if($req->input('book_type') == "schedule"){
-            $book = new Book();
-            $book->title = $req->input('title');
-            $book->project_id = $req->input('project_id');
-            $book->detail = $req->input('detail');
-            $book->category = $req->input('category');
-            $book->priority = $req->input('priority');
-            $book->start_time = $req->input('start_time');
-            $book->end_time = $req->input('end_time');
-            $book->save();
-        }elseif($req->input('book_type') == "task"){
-            $task = new Task();
-            $task->title = $req->input('title');
-            $task->detail = $req->input('detail');
-            $task->deadline = $req->input('deadline');
-            $task->category = $req->input('category');
-            $task->priority = $req->input('priority');
-            $task->time_required = $req->input('time_required');
-            $task->save();
-        }elseif($req->input('book_type') == "project"){
-            //coming soon...
-        }
+        
+        $book = new Book();
+        $book->title = $req->input('title');
+        $book->project_id = $req->input('project_id');
+        $book->detail = $req->input('detail');
+        $book->category = $req->input('category');
+        $book->priority = $req->input('priority');
+        $book->start_time = $req->input('start_time');
+        $book->end_time = $req->input('end_time');
+        $book->save();
 
         return redirect()->route('books.index');
-
     }
 
     function update(Request $req, Book $book){
         // dd($book);
         
         $book->title = $req->input('title');
+        $book->project_id = $req->input('project_id');
         $book->detail = $req->input('detail');
-        $book->deadline = $req->input('deadline');
         $book->category = $req->input('category');
         $book->priority = $req->input('priority');
-        $book->time_required = $req->input('time_required');
+        $book->start_time = $req->input('start_time');
+        $book->end_time = $req->input('end_time');
         $book->save();
         
         return redirect()->route('books.index');

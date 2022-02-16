@@ -45,15 +45,12 @@
                 <label for="priority">Priority</label>
                 <input type="int" name="priority" class="form-control">
             </div>
-
-            <!-- storeメソッド共通化のため -->
-            <input type="hidden" name="book_type" value="schedule">
             
             <button type="submit" class="btn btn-primary m-2">Add</button>
             <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
         </form>
 
-        <form action="/books" method="POST" id="task_form" style="display:none;">
+        <form action="/tasks" method="POST" id="task_form" style="display:none;">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
@@ -75,10 +72,12 @@
                 <label for="time_required">Time required</label>
                 <input type="int" name="time_required" class="form-control">
             </div>
-            
-            <input type="hidden" name="book_type" value="task">
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <input type="int" name="priority" class="form-control">
+            </div>
 
-            <button type="submit" class="btn btn-primary m-2">ADD</button>
+            <button type="submit" class="btn btn-primary m-2">Add</button>
             <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
         </form>
 
