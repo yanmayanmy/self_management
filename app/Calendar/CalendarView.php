@@ -6,11 +6,11 @@ use Carbon\Carbon;
 class CalendarView {
 
 	private $carbon;
-	private $books;
+	private $todo;
 
-	function __construct($date, $books){
+	function __construct($date, $todo){
 		$this->carbon = new Carbon($date);
-		$this->books = $books;
+		$this->todo = $todo;
 	}
 	/**
 	 * タイトル
@@ -50,7 +50,7 @@ class CalendarView {
 				$html[] = '<td class="' .$day->getClassName(). '">';
 				$html[] = $day->render();
 				$html[] = '<ul>';
-				foreach($this->books['schedules'] as $book){
+				foreach($this->todo['books'] as $book){
 					if($book->start_time != NULL){
 						$startDate = $book->start_time->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
 						$endDate = $book->end_time->setTime(0, 0, 0);
@@ -61,12 +61,12 @@ class CalendarView {
 						}
 					}
 				}
-				foreach($this->books['tasks'] as $book){
-					if($book->deadline != NULL){
-						$date = $book->deadline->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
+				foreach($this->todo['tasks'] as $task){
+					if($task->deadline != NULL){
+						$date = $task->deadline->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
 						if($date == $day->render_carbon()){
 							$html[] = '<li>';
-							$html[] = $book->title;
+							$html[] = $task->title;
 							$html[] = '</li>';
 						}
 					}

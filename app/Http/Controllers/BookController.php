@@ -15,13 +15,13 @@ class BookController extends Controller
         $tasks = Task::all();
 
         //render to calendar
-        $allBook =[
-            "schedules" => $books,
+        $allData =[
+            "books" => $books,
             "tasks" => $tasks
         ];
 
         $time = new DateTime('now');
-        $calendar = new CalendarView($time, $allBook);
+        $calendar = new CalendarView($time, $allData);
         return view('books.index', compact("books", "tasks", "calendar"));
     }
 
