@@ -54,6 +54,7 @@ class CalendarView {
 					if($book->start_time != NULL){
 						$startDate = $book->start_time->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
 						$endDate = $book->end_time->setTime(0, 0, 0);
+						
 						if($day->render_carbon()->gte($startDate) && $day->render_carbon()->lte($endDate)){
 							$html[] = '<li>';
 							$html[] = $book->title;
@@ -63,8 +64,7 @@ class CalendarView {
 				}
 				foreach($this->todo['tasks'] as $task){
 					if($task->deadline != NULL){
-						$date = $task->deadline->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
-						if($date == $day->render_carbon()){
+						if($day->render_carbon()->isSameDay($task->deadline)){
 							$html[] = '<li>';
 							$html[] = $task->title;
 							$html[] = '</li>';
