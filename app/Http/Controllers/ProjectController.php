@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Task;
+use App\Models\Project;
 
-
-class TaskController extends Controller
+class ProjectController extends Controller
 {
-    function show(Task $task){
+    function show(Project $project){
         // dd($book);
-        $info = $task;
+        $info = $project;
         return view('books.show', compact("info"));
     }
 
-    function edit(Task $task){
-        $info = $task;
+    function edit(Project $project){
+        $info = $project;
 
         return view('books.edit', compact("info"));
     }
@@ -23,18 +22,18 @@ class TaskController extends Controller
     function store(Request $req){
         // dd($book);
 
-        $task = new Task();
-        $task->fill($req->all());
-        $task->save();
+        $project = new project();
+        $project->fill($req->all());
+        $project->save();
 
         return redirect()->route('books.index');
     }
 
-    function update(Request $req, Task $task){
+    function update(Request $req, Project $project){
         // dd($book);
         
-        $task->fill($req->all());
-        $task->save();
+        $project->fill($req->all());
+        $project->save();
         
         return redirect()->route('books.index');
 
@@ -42,8 +41,8 @@ class TaskController extends Controller
         // return view('layouts.layouts');
     }
 
-    function destroy(Task $task){
-        $task->delete();
+    function destroy(Project $project){
+        $project->delete();
         return redirect()->route('books.index');
     }
 }

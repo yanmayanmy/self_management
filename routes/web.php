@@ -25,6 +25,7 @@ Route::patch("/books/{book}", [App\Http\Controllers\BookController::class, 'upda
 Route::delete("/books/{book}", [App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
 Route::get("/books/{book}/edit", [App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
 
+//一つのコントローラだと条件分岐が面倒なのでわけた
 // Task
 Route::post("/tasks", [App\Http\Controllers\TaskController::class, 'store'])->name('tasks.store');
 Route::get("/tasks/{task}", [App\Http\Controllers\TaskController::class, 'show'])->name('tasks.show');  
@@ -32,8 +33,12 @@ Route::patch("/tasks/{task}", [App\Http\Controllers\TaskController::class, 'upda
 Route::delete("/tasks/{task}", [App\Http\Controllers\TaskController::class, 'destroy'])->name('tasks.destroy');
 Route::get("/tasks/{task}/edit", [App\Http\Controllers\TaskController::class, 'edit'])->name('tasks.edit');
 
-//一つのコントローラだと条件分岐が面倒なのでわけた
-
+// Project
+Route::post('/projects', [App\Http\Controllers\TaskController::class, 'store'])->name('projects.store');
+Route::get('/projects/{project}', [App\Http\Controllers\TaskController::class, 'show'])->name('projects.show');  
+Route::patch('/projects/{project}', [App\Http\Controllers\TaskController::class, 'update'])->name('projects.update');
+Route::delete('/projects/{project}', [App\Http\Controllers\TaskController::class, 'destroy'])->name('projects.destroy');
+Route::get('/projects/{project}/edit', [App\Http\Controllers\TaskController::class, 'edit'])->name('projects.edit');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
