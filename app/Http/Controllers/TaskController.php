@@ -27,12 +27,7 @@ class TaskController extends Controller
         // dd($book);
 
         $task = new Task();
-        $task->title = $req->input('title');
-        $task->detail = $req->input('detail');
-        $task->deadline = $req->input('deadline');
-        $task->category = $req->input('category');
-        $task->priority = $req->input('priority');
-        $task->time_required = $req->input('time_required');
+        $task->fill($req->all());
         $task->save();
 
         return redirect()->route('books.index');
@@ -41,12 +36,7 @@ class TaskController extends Controller
     function update(Request $req, Task $task){
         // dd($book);
         
-        $task->title = $req->input('title');
-        $task->detail = $req->input('detail');
-        $task->deadline = $req->input('deadline');
-        $task->category = $req->input('category');
-        $task->priority = $req->input('priority');
-        $task->time_required = $req->input('time_required');
+        $task->fill($req->all());
         $task->save();
         
         return redirect()->route('books.index');

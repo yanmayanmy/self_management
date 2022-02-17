@@ -11,4 +11,12 @@ class Task extends Model
 
     protected $dates = ['deadline'];
 
+    protected $fillable = [
+        "title",
+        "detail",
+        "category",
+        "deadline",
+        "priority",
+        "time_required"
+    ];
 }

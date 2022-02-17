@@ -13,4 +13,13 @@ class Book extends Model
         'start_time',
         'end_time'
     ];
+
+    protected $fillable = [
+        "title",
+        "detail",
+        "category",
+        "start_time",
+        "end_time",
+        "priority"
+    ];
 }

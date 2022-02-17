@@ -45,13 +45,7 @@ class BookController extends Controller
         // dd($book);
         
         $book = new Book();
-        $book->title = $req->input('title');
-        $book->project_id = $req->input('project_id');
-        $book->detail = $req->input('detail');
-        $book->category = $req->input('category');
-        $book->priority = $req->input('priority');
-        $book->start_time = $req->input('start_time');
-        $book->end_time = $req->input('end_time');
+        $book->fill($req->all());
         $book->save();
 
         return redirect()->route('books.index');
@@ -60,13 +54,7 @@ class BookController extends Controller
     function update(Request $req, Book $book){
         // dd($book);
         
-        $book->title = $req->input('title');
-        $book->project_id = $req->input('project_id');
-        $book->detail = $req->input('detail');
-        $book->category = $req->input('category');
-        $book->priority = $req->input('priority');
-        $book->start_time = $req->input('start_time');
-        $book->end_time = $req->input('end_time');
+        $book->fill($req->all());
         $book->save();
         
         return redirect()->route('books.index');
