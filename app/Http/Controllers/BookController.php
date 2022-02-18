@@ -14,16 +14,18 @@ class BookController extends Controller
     function index(){
         $books = Book::all();
         $tasks = Task::all();
+        $projects = Project::all();
 
         //render to calendar
         $allData =[
             "books" => $books,
-            "tasks" => $tasks
+            "tasks" => $tasks,
+            "projects" => $projects,
         ];
 
         $time = new DateTime('now');
         $calendar = new CalendarView($time, $allData);
-        return view('books.index', compact("books", "tasks", "calendar"));
+        return view('books.index', compact("books", "tasks", "projects", "calendar"));
     }
 
     function show(Book $book){

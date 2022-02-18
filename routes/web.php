@@ -34,11 +34,11 @@ Route::delete("/tasks/{task}", [App\Http\Controllers\TaskController::class, 'des
 Route::get("/tasks/{task}/edit", [App\Http\Controllers\TaskController::class, 'edit'])->name('tasks.edit');
 
 // Project
-Route::post('/projects', [App\Http\Controllers\TaskController::class, 'store'])->name('projects.store');
-Route::get('/projects/{project}', [App\Http\Controllers\TaskController::class, 'show'])->name('projects.show');  
-Route::patch('/projects/{project}', [App\Http\Controllers\TaskController::class, 'update'])->name('projects.update');
-Route::delete('/projects/{project}', [App\Http\Controllers\TaskController::class, 'destroy'])->name('projects.destroy');
-Route::get('/projects/{project}/edit', [App\Http\Controllers\TaskController::class, 'edit'])->name('projects.edit');
+Route::post('/projects', [App\Http\Controllers\ProjectController::class, 'store'])->name('projects.store');
+Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show'])->name('projects.show');  
+Route::patch('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'update'])->name('projects.update');
+Route::delete('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'destroy'])->name('projects.destroy');
+Route::get('/projects/{project}/edit', [App\Http\Controllers\ProjectController::class, 'edit'])->name('projects.edit');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
