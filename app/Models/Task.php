@@ -15,12 +15,13 @@ class Task extends Model
         "title",
         "detail",
         "category",
+        "project_id",
         "deadline",
         "priority",
         "time_required"
     ];
 
     public function project(){
-        return $this->belongsTo("App\Project");
+        return $this->belongsTo("App\Models\Project");
     }
 }

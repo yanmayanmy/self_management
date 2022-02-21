@@ -23,7 +23,7 @@ class CreateSchedulesTable extends Migration
             $table->datetime("end_time");
             $table->integer("priority")->nullable();
             // 優先度は相対的に決めたい。最初に入力した予定の優先度を0として、その予定基準で優先度を決めれる機能を実装する予定。
-            //if(Book::all() == null) ? first_schedule() : schedule(); 的な
+            //if(Data::all() == null) ? first_schedule() : schedule(); 的な
             $table->timestamps();
         });
     }

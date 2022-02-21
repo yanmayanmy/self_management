@@ -18,12 +18,13 @@ class Schedule extends Model
         "title",
         "detail",
         "category",
+        "project_id",
         "start_time",
         "end_time",
         "priority"
     ];
 
     public function project(){
-        return $this->belongsTo("App\Project");
+        return $this->belongsTo("App\Models\Project");
     }
 }

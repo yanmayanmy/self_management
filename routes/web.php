@@ -19,12 +19,12 @@ use App\Http\Controllers\TaskController;
 */
 
 // Todo
-Route::get("/", [App\Http\Controllers\TodoController::class, 'index']); //ルートページの変更
-Route::get("/todos", [App\Http\Controllers\TodoController::class, 'index'])->name('todos.index');
+Route::get("/", [App\Http\Controllers\TodoController::class, 'index']); //Route page
+Route::get("/todos", [App\Http\Controllers\TodoController::class, 'index'])->name('todos.index'); // Top page
 Route::get("/todos/create", [App\Http\Controllers\TodoController::class, 'create'])->name('todos.create');
 
-
-//一つのコントローラだとshowメソッドの引数指定だとか取り扱うデータ型の条件分岐などいろいろ面倒なのでわけた所存
+// It was pain in the a** dealing show method in one controller due to the data type.
+// Thus, I made controller for each table.
 
 // Schedule
 Route::post("/schedules", [App\Http\Controllers\ScheduleController::class, 'store'])->name('schedules.store');

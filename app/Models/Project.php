@@ -20,11 +20,11 @@ class Project extends Model
     ];
 
     public function schedules(){
-        return $this->hasMany("App\Schedule");
+        return $this->hasMany("App\Models\Schedule");
     }
 
     public function tasks(){
-        return $this->hasMany("App\Task");
+        return $this->hasMany("App\Models\Task");
     }
 
 }

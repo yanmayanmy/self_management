@@ -27,9 +27,9 @@ class ScheduleController extends Controller
         
         $schedule = new Schedule();
         $schedule->fill($req->all());
-        $boscheduleok->save();
+        $schedule->save();
 
-        return redirect()->route('schedules.index');
+        return redirect()->route('todos.index');
     }
 
     function update(Request $req, Schedule $schedule){
@@ -38,7 +38,7 @@ class ScheduleController extends Controller
         $schedule->fill($req->all());
         $schedule->save();
         
-        return redirect()->route('schedules.index');
+        return redirect()->route('todos.index');
 
         //debug
         // return view('layouts.layouts');
@@ -46,6 +46,6 @@ class ScheduleController extends Controller
 
     function destroy(Schedule $schedule){
         $schedule->delete();
-        return redirect()->route('schedules.index');
+        return redirect()->route('todos.index');
     }
 }

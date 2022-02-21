@@ -30,6 +30,7 @@ class TodoController extends Controller
 
 
     public function create(){
-        return view('todos.create');
+        $projects = Project::all();
+        return view('todos.create', compact("projects"));
     }
 }

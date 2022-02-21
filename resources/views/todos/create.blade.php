@@ -34,6 +34,16 @@
                 <input type="text" name="category" class="form-control">
             </div>
             <div class="form-group">
+                <label for="project_id">Project</label>
+                <select name="project_id" id="project_id" class="form-select">
+                    <option value="">--select the project---</option>
+                    @foreach($projects as $project)
+                    <option value="{{$project->id}}">{{$project->title}}</option>
+                    @endforeach
+
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="start_time">Start time</label>
                 <input type="datetime-local" name="start_time" class="form-control">
             </div>
@@ -64,6 +74,16 @@
             <div class="form-group">
                 <label for="category">Category</label>
                 <input type="text" name="category" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="project_id">Project</label>
+                <select name="project_id" id="project_id" class="form-select">
+                    <option value="">--select the project---</option>
+                    @foreach($projects as $project)
+                    <option value="{{$project->id}}">{{$project->title}}</option>
+                    @endforeach
+
+                </select>
             </div>
             <div class="form-group">
                 <label for="deadline">Deadline</label>
