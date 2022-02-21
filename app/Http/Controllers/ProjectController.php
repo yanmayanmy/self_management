@@ -8,34 +8,34 @@ use App\Models\Project;
 class ProjectController extends Controller
 {
     function show(Project $project){
-        // dd($book);
+        // dd($project);
         $info = $project;
-        return view('books.show', compact("info"));
+        return view('todos.show', compact("info"));
     }
 
     function edit(Project $project){
         $info = $project;
 
-        return view('books.edit', compact("info"));
+        return view('todos.edit', compact("info"));
     }
 
     function store(Request $req){
-        // dd($book);
+        // dd($);
 
         $project = new project();
         $project->fill($req->all());
         $project->save();
 
-        return redirect()->route('books.index');
+        return redirect()->route('todos.index');
     }
 
     function update(Request $req, Project $project){
-        // dd($book);
+        // dd($);
         
         $project->fill($req->all());
         $project->save();
         
-        return redirect()->route('books.index');
+        return redirect()->route('todos.index');
 
         //debug
         // return view('layouts.layouts');
@@ -43,6 +43,6 @@ class ProjectController extends Controller
 
     function destroy(Project $project){
         $project->delete();
-        return redirect()->route('books.index');
+        return redirect()->route('todos.index');
     }
 }

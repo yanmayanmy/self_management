@@ -1,16 +1,15 @@
 <?php
 namespace App\Calendar;
-use App\Models\Book;
 use Carbon\Carbon;
 
 class CalendarView {
 
 	private $carbon;
-	private $todo;
+	private $todos;
 
-	function __construct($date, $todo){
+	function __construct($date, $todos){
 		$this->carbon = new Carbon($date);
-		$this->todo = $todo;
+		$this->todos = $todos;
 	}
 	/**
 	 * タイトル
@@ -50,19 +49,19 @@ class CalendarView {
 				$html[] = '<td class="' .$day->getClassName(). '">';
 				$html[] = $day->render();
 				$html[] = '<ul>';
-				foreach($this->todo['books'] as $book){
-					if($book->start_time != NULL){
-						$startDate = $book->start_time->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
-						$endDate = $book->end_time->setTime(0, 0, 0);
+				foreach($this->todos['schedules'] as $schedule){
+					if($schedule->start_time != NULL){
+						$startDate = $schedule->start_time->setTime(0, 0, 0); //時刻を00:00:00にして日付のみでの比較を可能にする。
+						$endDate = $schedule->end_time->setTime(0, 0, 0);
 						
 						if($day->render_carbon()->gte($startDate) && $day->render_carbon()->lte($endDate)){
 							$html[] = '<li>';
-							$html[] = $book->title;
+							$html[] = $schedule->title;
 							$html[] = '</li>';
 						}
 					}
 				}
-				foreach($this->todo['tasks'] as $task){
+				foreach($this->todos['tasks'] as $task){
 					if($task->deadline != NULL){
 						if($day->render_carbon()->isSameDay($task->deadline)){
 							$html[] = '<li>';

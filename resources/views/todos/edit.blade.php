@@ -6,7 +6,7 @@
 
     <div class="container" id="edit">
         <div class="form-check">
-            <input type="radio" id="schedule" name="type" class="form-check-input" {{ ($info instanceof App\Models\Book) ? "checked" : "disabled" }} onclick="entryChange()">
+            <input type="radio" id="schedule" name="type" class="form-check-input" {{ ($info instanceof App\Models\Schedule) ? "checked" : "disabled" }} onclick="entryChange()">
             <label for="schedule" class="form-check-label">Schedule</label>
         </div>
         <div class="form-check">
@@ -18,8 +18,8 @@
             <label for="project" class="form-check-label">Project</label>
         </div>
 
-        <!-- Book -->
-        <form action="/books/{{ $info->id }}" method="POST" id="switch_to_schedule" style="display:none;">
+        <!-- Schedule -->
+        <form action="/schedules/{{ $info->id }}" method="POST" id="switch_to_schedule" style="display:none;">
             @csrf
             @method("PATCH")
 
@@ -49,7 +49,7 @@
             </div>
             
             <button type="submit" class="btn btn-primary m-2">Apply</button>
-            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
+            <a href="{{ route('todos.index') }}" class="btn btn-secondary m-2">Back</a>
         </form>
 
         <!-- Task -->
@@ -79,11 +79,11 @@
             </div>
             <div class="form-group">
                 <label for="priority">Priority</label>
-                <input type="int" name="priority" class="form-control">
+                <input type="int" name="priority" class="form-control" value="{{ $info->priority }}">
             </div>
 
             <button type="submit" class="btn btn-primary m-2">Apply</button>
-            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
+            <a href="{{ route('todos.index') }}" class="btn btn-secondary m-2">Back</a>
         </form>
 
         <!-- Project -->
@@ -113,7 +113,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary m-2">Apply</button>
-            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Top</a>
+            <a href="{{ route('todos.index') }}" class="btn btn-secondary m-2">Top</a>
         </form>
 
 
@@ -122,11 +122,8 @@
     <!-- debug -->
     <?php
                 // echo('<pre>');
-                // var_dump($book);
                 // var_dump($task);
                 // echo('</pre>');
-                // if($book instanceof App\Models\Book){echo "True";}else{echo "False";}
-                // if($task instanceof App\Models\Task){echo "True";}else{echo "False";}
     ?>
 
     <script type="text/javascript">

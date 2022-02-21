@@ -19,4 +19,8 @@ class Task extends Model
         "priority",
         "time_required"
     ];
+
+    public function project(){
+        return $this->belongsTo("App\Project");
+    }
 }

@@ -8,7 +8,7 @@
         <div class="container">
 
             <div class="form-check">
-                <input type="radio" id="schedule" name="type" class="form-check-input" {{ ($info instanceof App\Models\Book) ? "checked" : "disabled" }} onclick="entryChange()">
+                <input type="radio" id="schedule" name="type" class="form-check-input" {{ ($info instanceof App\Models\Schedule) ? "checked" : "disabled" }} onclick="entryChange()">
                 <label for="schedule" class="form-check-label">Schedule</label>
             </div>
             <div class="form-check">
@@ -20,7 +20,7 @@
                 <label for="project" class="form-check-label">Project</label>
             </div>
 
-            <!-- Book -->
+            <!-- Schedule -->
             <div id="switch_to_schedule" style="display:none;">
                 <table class="table table-striped">
                     <tr>
@@ -48,9 +48,9 @@
                         <td>{{ $info->priority }}</td>
                     </tr>
                 </table>
-                <a href="{{ route('books.index') }}" class="btn btn-secondary">Top</a>
-                <a href="{{ route('books.edit', $info) }}" class="btn btn-warning">Edit</a>
-                <form action="/books/{{ $info->id }}" method="POST" style="display: inline;">
+                <a href="{{ route('todos.index') }}" class="btn btn-secondary">Top</a>
+                <a href="{{ route('schedules.edit', $info) }}" class="btn btn-warning">Edit</a>
+                <form action="/schedules/{{ $info->id }}" method="POST" style="display: inline;">
                     @method("DELETE")
                     @csrf
                     <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
@@ -85,7 +85,7 @@
                         <td>{{ $info->priority }}</td>
                     </tr>
                 </table>
-                <a href="{{ route('books.index') }}" class="btn btn-secondary">Top</a>
+                <a href="{{ route('todos.index') }}" class="btn btn-secondary">Top</a>
                 <a href="{{ route('tasks.edit', $info) }}" class="btn btn-warning">Edit</a>
                 <form action="/tasks/{{ $info->id }}" method="POST" style="display: inline;">
                     @method("DELETE")
@@ -118,7 +118,7 @@
                         <td>{{ $info->priority }}</td>
                     </tr>
                 </table>
-                <a href="{{ route('books.index') }}" class="btn btn-secondary">Top</a>
+                <a href="{{ route('todos.index') }}" class="btn btn-secondary">Top</a>
                 <a href="{{ route('projects.edit', $info) }}" class="btn btn-warning">Edit</a>
                 <form action="/projects/{{ $info->id }}" method="POST" style="display: inline;">
                     @method("DELETE")
@@ -131,7 +131,7 @@
         <!-- debug -->
         <?php
             // echo('<pre>');
-            // var_dump($book->deadline);
+            // var_dump();
             // echo('</pre>');
         ?>
         

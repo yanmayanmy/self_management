@@ -19,4 +19,12 @@ class Project extends Model
         "priority",
     ];
 
+    public function schedules(){
+        return $this->hasMany("App\Schedule");
+    }
+
+    public function tasks(){
+        return $this->hasMany("App\Task");
+    }
+
 }

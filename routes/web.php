@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController; //ルーティングで使いたいコントローラの宣言
+
+use App\Http\Controllers\TodoController; //ルーティングで使いたいコントローラの宣言
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TaskController;
 
 /*
@@ -15,17 +18,21 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-// Book
-Route::get("/", [App\Http\Controllers\BookController::class, 'index']); //ルートページの変更
-Route::get("/books", [App\Http\Controllers\BookController::class, 'index'])->name('books.index');
-Route::post("/books", [App\Http\Controllers\BookController::class, 'store'])->name('books.store');
-Route::get("/books/create", [App\Http\Controllers\BookController::class, 'create'])->name('books.create');
-Route::get("/books/{book}", [App\Http\Controllers\BookController::class, 'show'])->name('books.show');
-Route::patch("/books/{book}", [App\Http\Controllers\BookController::class, 'update'])->name('books.update');
-Route::delete("/books/{book}", [App\Http\Controllers\BookController::class, 'destroy'])->name('books.destroy');
-Route::get("/books/{book}/edit", [App\Http\Controllers\BookController::class, 'edit'])->name('books.edit');
+// Todo
+Route::get("/", [App\Http\Controllers\TodoController::class, 'index']); //ルートページの変更
+Route::get("/todos", [App\Http\Controllers\TodoController::class, 'index'])->name('todos.index');
+Route::get("/todos/create", [App\Http\Controllers\TodoController::class, 'create'])->name('todos.create');
 
-//一つのコントローラだと条件分岐が面倒なのでわけた
+
+//一つのコントローラだとshowメソッドの引数指定だとか取り扱うデータ型の条件分岐などいろいろ面倒なのでわけた所存
+
+// Schedule
+Route::post("/schedules", [App\Http\Controllers\ScheduleController::class, 'store'])->name('schedules.store');
+Route::get("/schedules/{schedule}", [App\Http\Controllers\ScheduleController::class, 'show'])->name('schedules.show');
+Route::patch("/boschedulesks/{schedule}", [App\Http\Controllers\ScheduleController::class, 'update'])->name('schedules.update');
+Route::delete("/schedules/{schedule}", [App\Http\Controllers\ScheduleController::class, 'destroy'])->name('schedules.destroy');
+Route::get("/schedules/{schedule}/edit", [App\Http\Controllers\ScheduleController::class, 'edit'])->name('schedules.edit');
+
 // Task
 Route::post("/tasks", [App\Http\Controllers\TaskController::class, 'store'])->name('tasks.store');
 Route::get("/tasks/{task}", [App\Http\Controllers\TaskController::class, 'show'])->name('tasks.show');  

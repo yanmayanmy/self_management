@@ -9,34 +9,34 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     function show(Task $task){
-        // dd($book);
+        // dd($task);
         $info = $task;
-        return view('books.show', compact("info"));
+        return view('todos.show', compact("info"));
     }
 
     function edit(Task $task){
         $info = $task;
 
-        return view('books.edit', compact("info"));
+        return view('todos.edit', compact("info"));
     }
 
     function store(Request $req){
-        // dd($book);
+        // dd($task);
 
         $task = new Task();
         $task->fill($req->all());
         $task->save();
 
-        return redirect()->route('books.index');
+        return redirect()->route('todos.index');
     }
 
     function update(Request $req, Task $task){
-        // dd($book);
+        // dd($task);
         
         $task->fill($req->all());
         $task->save();
         
-        return redirect()->route('books.index');
+        return redirect()->route('todos.index');
 
         //debug
         // return view('layouts.layouts');
@@ -44,6 +44,6 @@ class TaskController extends Controller
 
     function destroy(Task $task){
         $task->delete();
-        return redirect()->route('books.index');
+        return redirect()->route('todos.index');
     }
 }

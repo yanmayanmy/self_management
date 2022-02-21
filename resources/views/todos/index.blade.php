@@ -6,7 +6,7 @@
 
     <!-- List -->
     <div class="container">
-        <a href="{{ route('books.create') }}" class="btn btn-success btn-lg m-2">+Add</a>
+        <a href="{{ route('todos.create') }}" class="btn btn-success btn-lg m-2">+Add</a>
 
         <h2>Schedules</h2>
         <table class="table table-striped">
@@ -22,17 +22,17 @@
             </thead>
 
             <tbody>
-                @foreach($books as $book)
+                @foreach($schedules as $schedule)
                 <tr>
-                    <td>{{ $book->title }}</td>
-                    <td>{{ $book->start_time }}</td>
-                    <td>{{ $book->end_time }}</td>
-                    <td>{{ $book->category }}</td>
-                    <td>{{ $book->priority }}</td>
+                    <td>{{ $schedule->title }}</td>
+                    <td>{{ $schedule->start_time }}</td>
+                    <td>{{ $schedule->end_time }}</td>
+                    <td>{{ $schedule->category }}</td>
+                    <td>{{ $schedule->priority }}</td>
                     <td>
-                        <a href="{{ route('books.show', $book) }}" class="btn btn-info">More</a>
-                        <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">Edit</a>
-                        <form action="/books/{{ $book->id }}" method="POST" style="display: inline;">
+                        <a href="{{ route('schedules.show', $schedule) }}" class="btn btn-info">More</a>
+                        <a href="{{ route('schedules.edit', $schedule) }}" class="btn btn-warning">Edit</a>
+                        <form action="/schedules/{{ $schedule->id }}" method="POST" style="display: inline;">
                             @method("DELETE")
                             @csrf
                             <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
@@ -116,11 +116,9 @@
     <!-- debug -->
     <?php
                 // echo('<pre>');
-                // var_dump($book);
+                // var_dump($task);
                 // var_dump($task);
                 // echo('</pre>');
-                // if($book instanceof App\Models\Book){echo "True";}else{echo "False";}
-                // if($task instanceof App\Models\Task){echo "True";}else{echo "False";}
     ?>
 
     <!-- Calendar -->

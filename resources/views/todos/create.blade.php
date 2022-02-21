@@ -18,8 +18,8 @@
             <label for="project" class="form-check-label">Project</label>
         </div>
 
-        <!-- Book -->
-        <form action="/books" method="POST" id="switch_to_schedule" style="display:none;">
+        <!-- Schedule -->
+        <form action="/schedules" method="POST" id="switch_to_schedule" style="display:none;">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
@@ -47,7 +47,7 @@
             </div>
             
             <button type="submit" class="btn btn-primary m-2">Add</button>
-            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
+            <a href="{{ route('todos.index') }}" class="btn btn-secondary m-2">Back</a>
         </form>
 
         <!-- Task -->
@@ -79,7 +79,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary m-2">Add</button>
-            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
+            <a href="{{ route('todos.index') }}" class="btn btn-secondary m-2">Back</a>
         </form>
 
         <!-- Project -->
@@ -107,7 +107,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary m-2">Add</button>
-            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
+            <a href="{{ route('todos.index') }}" class="btn btn-secondary m-2">Top</a>
         </form>
     </div>
 
