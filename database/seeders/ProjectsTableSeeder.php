@@ -14,6 +14,6 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        Project::create(['title'=>'Deploy the Prototype', 'detail'=>'building self management app', 'category'=>'Programming','deadline'=>'2022/02/28 03:04:05', 'priority'=>100]);
+        Project::create(['title'=>'Deploy the Prototype', 'detail'=>'building self management app', 'category'=>'Programming','deadline'=>'2022/02/28 03:04', 'priority'=>100]);
     }
 }

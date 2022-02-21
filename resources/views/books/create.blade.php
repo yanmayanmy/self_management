@@ -6,20 +6,20 @@
 
     <div class="container">
         <div class="form-check">
-            <input type="radio" id="schedule" name="addon" class="form-check-input" onclick="entryChange()" checked>
+            <input type="radio" id="schedule" name="type" class="form-check-input" onclick="entryChange()" checked>
             <label for="schedule" class="form-check-label">Schedule</label>
         </div>
         <div class="form-check">
-            <input type="radio" id="task" name="addon" class="form-check-input" onclick="entryChange()">
+            <input type="radio" id="task" name="type" class="form-check-input" onclick="entryChange()">
             <label for="task" class="form-check-label">Task</label>
         </div>
         <div class="form-check mb-3">
-            <input type="radio" id="project" name="addon" class="form-check-input" onclick="entryChange()">
+            <input type="radio" id="project" name="type" class="form-check-input" onclick="entryChange()">
             <label for="project" class="form-check-label">Project</label>
         </div>
 
         <!-- Book -->
-        <form action="/books" method="POST" id="schedule_form" style="display:none;">
+        <form action="/books" method="POST" id="switch_to_schedule" style="display:none;">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
@@ -51,7 +51,7 @@
         </form>
 
         <!-- Task -->
-        <form action="/tasks" method="POST" id="task_form" style="display:none;">
+        <form action="/tasks" method="POST" id="switch_to_task" style="display:none;">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
@@ -83,7 +83,7 @@
         </form>
 
         <!-- Project -->
-        <form action="/projects" method="POST" id="project_form" style="display:none;">
+        <form action="/projects" method="POST" id="switch_to_project" style="display:none;">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
@@ -121,20 +121,20 @@
 
     <script type="text/javascript">
         function entryChange(){
-            radio = document.getElementsByName('addon') 
+            radio = document.getElementsByName('type') 
 
             if(radio[0].checked) {
-                document.getElementById('schedule_form').style.display = "";
-                document.getElementById('task_form').style.display = "none";
-                document.getElementById('project_form').style.display = "none";
+                document.getElementById('switch_to_schedule').style.display = "";
+                document.getElementById('switch_to_task').style.display = "none";
+                document.getElementById('switch_to_project').style.display = "none";
             }else if(radio[1].checked) {
-                document.getElementById('schedule_form').style.display = "none";
-                document.getElementById('task_form').style.display = "";
-                document.getElementById('project_form').style.display = "none";
+                document.getElementById('switch_to_schedule').style.display = "none";
+                document.getElementById('switch_to_task').style.display = "";
+                document.getElementById('switch_to_project').style.display = "none";
             }else if(radio[2].checked) {
-                document.getElementById('schedule_form').style.display = "none";
-                document.getElementById('task_form').style.display = "none";
-                document.getElementById('project_form').style.display = "";
+                document.getElementById('switch_to_schedule').style.display = "none";
+                document.getElementById('switch_to_task').style.display = "none";
+                document.getElementById('switch_to_project').style.display = "";
             }
         }
        

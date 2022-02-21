@@ -6,20 +6,20 @@
 
     <div class="container" id="edit">
         <div class="form-check">
-            <input type="radio" id="schedule" name="addon" class="form-check-input" {{ ($info instanceof App\Models\Book) ? "checked" : "disabled" }} onclick="entryChange()">
+            <input type="radio" id="schedule" name="type" class="form-check-input" {{ ($info instanceof App\Models\Book) ? "checked" : "disabled" }} onclick="entryChange()">
             <label for="schedule" class="form-check-label">Schedule</label>
         </div>
         <div class="form-check">
-            <input type="radio" id="task" name="addon" class="form-check-input" {{ ($info instanceof App\Models\Task) ? "checked" : "disabled" }} onclick="entryChange()">
+            <input type="radio" id="task" name="type" class="form-check-input" {{ ($info instanceof App\Models\Task) ? "checked" : "disabled" }} onclick="entryChange()">
             <label for="task" class="form-check-label">Task</label>
         </div>
         <div class="form-check mb-3">
-            <input type="radio" id="project" name="addon" class="form-check-input" {{ ($info instanceof App\Models\Project) ? "checked" : "disabled" }} onclick="entryChange()">
+            <input type="radio" id="project" name="type" class="form-check-input" {{ ($info instanceof App\Models\Project) ? "checked" : "disabled" }} onclick="entryChange()">
             <label for="project" class="form-check-label">Project</label>
         </div>
 
         <!-- Book -->
-        <form action="/books/{{ $info->id }}" method="POST" class="switch_to_schedule" style="display:none;">
+        <form action="/books/{{ $info->id }}" method="POST" id="switch_to_schedule" style="display:none;">
             @csrf
             @method("PATCH")
 
@@ -47,16 +47,13 @@
                 <label for="priority">Priority</label>
                 <input type="int" name="priority" class="form-control"value="{{ $info->priority }}">
             </div>
-
-            <!-- storeメソッド共通化のため -->
-            <input type="hidden" name="book_type" value="schedule">
             
             <button type="submit" class="btn btn-primary m-2">Apply</button>
             <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
         </form>
 
         <!-- Task -->
-        <form action="/tasks/{{ $info->id }}" method="POST" class="switch_to_task" style="display:none;">
+        <form action="/tasks/{{ $info->id }}" method="POST" id="switch_to_task" style="display:none;">
             @csrf
             @method("PATCH")
 
@@ -84,15 +81,13 @@
                 <label for="priority">Priority</label>
                 <input type="int" name="priority" class="form-control">
             </div>
-            
-            <input type="hidden" name="book_type" value="task">
 
             <button type="submit" class="btn btn-primary m-2">Apply</button>
             <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
         </form>
 
         <!-- Project -->
-        <form action="/projects/{{ $info->id }}" method="POST" class="switch_to_project" style="display:none;">
+        <form action="/projects/{{ $info->id }}" method="POST" id="switch_to_project" style="display:none;">
             @csrf
             @method("PATCH")
 
@@ -114,13 +109,11 @@
             </div>
             <div class="form-group">
                 <label for="priority">Priority</label>
-                <input type="int" name="priority" class="form-control">
+                <input type="int" name="priority" class="form-control" value="{{ $info->priority }}">
             </div>
-            
-            <input type="hidden" name="book_type" value="task">
 
             <button type="submit" class="btn btn-primary m-2">Apply</button>
-            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Back</a>
+            <a href="{{ route('books.index') }}" class="btn btn-secondary m-2">Top</a>
         </form>
 
 
@@ -138,20 +131,20 @@
 
     <script type="text/javascript">
         function entryChange(){
-            radio = document.getElementsByName('addon') 
+            radio = document.getElementsByName('type') 
 
             if(radio[0].checked) {
-                document.getElementByClass('switch_to_schedule').style.display = "";
-                document.getElementByClass('switch_to_task').style.display = "none";
-                document.getElementByClass('switch_to_project').style.display = "none";
+                document.getElementById('switch_to_schedule').style.display = "";
+                document.getElementById('switch_to_task').style.display = "none";
+                document.getElementById('switch_to_project').style.display = "none";
             }else if(radio[1].checked) {
-                document.getElementByClass('switch_to_schedule').style.display = "none";
-                document.getElementByClass('switch_tot_task').style.display = "";
-                document.getElementByClass('switch_tot_project').style.display = "none";
-            }else if(radop[2].checked){
-                document.getElementByClass('switch_to_schedule').style.display = "none";
-                document.getElementByClass('switch_to_task').style.display = "none";
-                document.getElementByClass('switch_to_project').style.display = "";
+                document.getElementById('switch_to_schedule').style.display = "none";
+                document.getElementById('switch_to_task').style.display = "";
+                document.getElementById('switch_to_project').style.display = "none";
+            }else if(radio[2].checked) {
+                document.getElementById('switch_to_schedule').style.display = "none";
+                document.getElementById('switch_to_task').style.display = "none";
+                document.getElementById('switch_to_project').style.display = "";
             }
         }
        

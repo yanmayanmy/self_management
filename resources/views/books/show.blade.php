@@ -16,12 +16,12 @@
                 <label for="task" class="form-check-label">Task</label>
             </div>
             <div class="form-check mb-3">
-                <input type="radio" id="project" name="addon" class="form-check-input" {{ ($info instanceof App\Models\Project) ? "checked" : "disabled" }} onclick="entryChange()">
+                <input type="radio" id="project" name="type" class="form-check-input" {{ ($info instanceof App\Models\Project) ? "checked" : "disabled" }} onclick="entryChange()">
                 <label for="project" class="form-check-label">Project</label>
             </div>
 
             <!-- Book -->
-            <div class="switch_to_schedule" style="display:none;">
+            <div id="switch_to_schedule" style="display:none;">
                 <table class="table table-striped">
                     <tr>
                         <td>Title</td>
@@ -58,7 +58,7 @@
             </div>
 
             <!-- Task -->
-            <div class="switch_to_task" style="display:none;">
+            <div id="switch_to_task" style="display:none;">
                 <table class="table table-striped">
                     <tr>
                         <td>Title</td>
@@ -95,7 +95,7 @@
             </div>
             
             <!-- Project -->
-            <div class="switch_to_project" style="display:none;">
+            <div id="switch_to_project" style="display:none;">
                 <table class="table table-striped">
                     <tr>
                         <td>Title</td>
@@ -139,20 +139,20 @@
 
     <script type="text/javascript">
         function entryChange(){
-            radio = document.getElementsByName('addon')
+            radio = document.getElementsByName('type') 
 
             if(radio[0].checked) {
-                document.getElementByClass('switch_to_schedule').style.display = "";
-                document.getElementByClass('switch_to_task').style.display = "none";
-                document.getElementByClass('switch_to_project').style.display = "none";
+                document.getElementById('switch_to_schedule').style.display = "";
+                document.getElementById('switch_to_task').style.display = "none";
+                document.getElementById('switch_to_project').style.display = "none";
             }else if(radio[1].checked) {
-                document.getElementByClass('switch_to_schedule').style.display = "none";
-                document.getElementByClass('switch_tot_task').style.display = "";
-                document.getElementByClass('switch_tot_project').style.display = "none";
-            }else if(radop[2].checked){
-                document.getElementByClass('switch_to_schedule').style.display = "none";
-                document.getElementByClass('switch_to_task').style.display = "none";
-                document.getElementByClass('switch_to_project').style.display = "";
+                document.getElementById('switch_to_schedule').style.display = "none";
+                document.getElementById('switch_to_task').style.display = "";
+                document.getElementById('switch_to_project').style.display = "none";
+            }else if(radio[2].checked) {
+                document.getElementById('switch_to_schedule').style.display = "none";
+                document.getElementById('switch_to_task').style.display = "none";
+                document.getElementById('switch_to_project').style.display = "";
             }
         }
        
