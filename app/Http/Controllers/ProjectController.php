@@ -14,7 +14,8 @@ class ProjectController extends Controller
     }
 
     function project_map(Project $project){
-        return view('pages.project_map', compact("project"));
+        $todos = Project::sort_milestones($project);
+        return view('pages.project_map', compact("todos"));
     }
 
     function edit(Project $project){

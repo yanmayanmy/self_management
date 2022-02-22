@@ -97,7 +97,7 @@
                     <td>{{ $project->category }}</td>
                     <td>{{ $project->priority }}</td>
                     <td>
-                        <a href="{{ route('projects.show', $project) }}" class="btn btn-info">More</a>
+                        <a href="{{ route('projects.project_map', $project) }}" class="btn btn-info">More</a>
                         <a href="{{ route('projects.edit', $project) }}" class="btn btn-warning">Edit</a>
                         <form action="/projects/{{ $project->id }}" method="POST" style="display: inline;">
                             @method("DELETE")
