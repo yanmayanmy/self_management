@@ -4,7 +4,6 @@
 <div class="container">
     <h1 class="p-3">To Do List</h1>
 
-    <!-- List -->
     <div class="container">
         <a href="{{ route('todos.create') }}" class="btn btn-success btn-lg m-2">+Add</a>
 

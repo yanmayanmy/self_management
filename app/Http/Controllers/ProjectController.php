@@ -10,13 +10,17 @@ class ProjectController extends Controller
     function show(Project $project){
         // dd($project);
         $info = $project;
-        return view('todos.show', compact("info"));
+        return view('pages.show', compact("info"));
+    }
+
+    function project_map(Project $project){
+        return view('pages.project_map', compact("project"));
     }
 
     function edit(Project $project){
         $info = $project;
 
-        return view('todos.edit', compact("info"));
+        return view('pages.edit', compact("info"));
     }
 
     function store(Request $req){

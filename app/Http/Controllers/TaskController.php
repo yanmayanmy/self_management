@@ -11,13 +11,13 @@ class TaskController extends Controller
     function show(Task $task){
         // dd($task);
         $info = $task;
-        return view('todos.show', compact("info"));
+        return view('pages.show', compact("info"));
     }
 
     function edit(Task $task){
         $info = $task;
 
-        return view('todos.edit', compact("info"));
+        return view('pages.edit', compact("info"));
     }
 
     function store(Request $req){

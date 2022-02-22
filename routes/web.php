@@ -43,6 +43,7 @@ Route::get("/tasks/{task}/edit", [App\Http\Controllers\TaskController::class, 'e
 // Project
 Route::post('/projects', [App\Http\Controllers\ProjectController::class, 'store'])->name('projects.store');
 Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show'])->name('projects.show');  
+Route::get('/projects/map/{project}', [App\Http\Controllers\ProjectController::class, 'project_map'])->name('projects.project_map');  
 Route::patch('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'update'])->name('projects.update');
 Route::delete('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'destroy'])->name('projects.destroy');
 Route::get('/projects/{project}/edit', [App\Http\Controllers\ProjectController::class, 'edit'])->name('projects.edit');

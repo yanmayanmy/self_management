@@ -25,12 +25,12 @@ class TodoController extends Controller
 
         $time = new DateTime('now');
         $calendar = new CalendarView($time, $todos);
-        return view('todos.index', compact("projects", "schedules", "tasks", "calendar"));
+        return view('pages.index', compact("projects", "schedules", "tasks", "calendar"));
     }
 
 
     public function create(){
         $projects = Project::all();
-        return view('todos.create', compact("projects"));
+        return view('pages.create', compact("projects"));
     }
 }

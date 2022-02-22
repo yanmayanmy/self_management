@@ -12,14 +12,14 @@ class ScheduleController extends Controller
     function show(Schedule $schedule){
         // dd($schedule);
         $info = $schedule;
-        return view('todos.show', compact("info"));
+        return view('pages.show', compact("info"));
     }
 
 
     function edit(Schedule $schedule){
         $info = $schedule;
 
-        return view('todos.edit', compact("info"));
+        return view('pages.edit', compact("info"));
     }
 
     function store(Request $req){
