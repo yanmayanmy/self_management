@@ -28,8 +28,12 @@ class Project extends Model
     }
 
 
-    /***
-     * Sort tasks and schedules by deadline or start time.
+    /**
+     * Collect all tasks and schedules related to the project 
+     * and sort by deadline or start time in order to show in the project map.
+     * 
+     * @param Project $project
+     * @return array|string
      */
     public function sort_milestones(Project $project){
         $tasks = $project->tasks;

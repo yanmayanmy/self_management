@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Schedule;
@@ -12,18 +13,32 @@ use DateTime;
 class TodoController extends Controller
 {
     function index(){
-        $projects = Project::all();
-        $schedules = Schedule::all();
-        $tasks = Task::all();
+        $time = new DateTime('now');
 
-        //render to calendar
+        $thisMonth = $time->format("m");
+
+        $projects = Project::whereMonth('deadline', $thisMonth)    
+            ->orderBy('deadline', 'asc')
+            ->limit(5)
+            ->get();
+
+        $schedules = Schedule::whereMonth('start_time', $thisMonth)    
+            ->orderBy('start_time', 'asc')
+            ->limit(5)
+            ->get();
+
+        $tasks = Task::whereMonth('deadline', $thisMonth)    
+            ->orderBy('deadline', 'asc')
+            ->limit(5)
+            ->get();
+
+        // Render the data to the calendar
         $todos =[
             "projects" => $projects,
             "schedules" => $schedules,
             "tasks" => $tasks,
         ];
 
-        $time = new DateTime('now');
         $calendar = new CalendarView($time, $todos);
         return view('pages.index', compact("projects", "schedules", "tasks", "calendar"));
     }
