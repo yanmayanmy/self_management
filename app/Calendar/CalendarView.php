@@ -12,14 +12,14 @@ class CalendarView {
 		$this->todos = $todos;
 	}
 	/**
-	 * タイトル
+	 * Render the title
 	 */
 	public function getTitle(){
-		return $this->carbon->format('Y年n月');
+		return $this->carbon->format('Y F');
 	}
 
 	/**
-	 * カレンダーを出力する
+	 * Display calendar
 	 */
 	function render(){
 		$html = [
@@ -107,5 +107,15 @@ class CalendarView {
 		}
 
 		return $weeks;
+	}
+
+	/**
+	 * Next month
+	 */
+	public function getNextMonth(){
+		return $this->carbon->copy()->addMonthsNoOverflow()->format('Y-m');
+	}
+	public function getPreviousMonth(){
+		return $this->carbon->copy()->subMonthsNoOverflow()->format('Y-m');
 	}
 }

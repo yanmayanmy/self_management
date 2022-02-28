@@ -22,6 +22,11 @@ Index
 /***
 * Calendar
 */
+.calendar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 #calendar tr {
     display: flex;
