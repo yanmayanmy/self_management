@@ -45,15 +45,17 @@ class Project extends Model
                 "id" => $task->id,
                 "title" => $task->title,
                 "deadline" => $task->deadline->format("Y-M-d"),
+                "type" => "task", // reference used in project map
             ];
         }
 
         foreach($schedules as $schedule){
             $todos[] = [
-                "id" => $task->id,
+                "id" => $Schedule->id,
                 "title" => $schedule->title,
                 "start_time" => $schedule->start_time->format("Y-M-d"),
                 "end_time" => $schedule->end_time->format("Y-M-d"),
+                "type" => "schedule",
             ];
         }
 

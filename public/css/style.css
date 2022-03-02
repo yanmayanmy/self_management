@@ -8,10 +8,16 @@ body {
     display: flex;
     flex-flow: column;
     min-height: 100vh;
-  }
+    background-color: #EDF2F7;
+}
+
   main {
-    flex: 1;
-  }
+flex: 1;
+}
+
+.relative {
+    position: relative;
+}
 
 
 /*************************************
@@ -63,6 +69,88 @@ Show
 /*************************************
 Create
 *************************************/
+
+
+/*************************************
+Project Map
+*************************************/
+#project_map {
+    margin-top: 100px;
+}
+
+#project_map .project-goal{
+    text-align: center;
+    width: 40%;
+    height: 56px;
+    margin: 0 auto;
+    border-bottom: solid 5px #7fe9f7;
+}
+
+#project_map .time_line{
+    position: absolute;
+    height: calc(100% - 56px - 15px);
+    width: 3px;
+    left: 50%;
+    background: #7fe9f7;
+}
+
+#project_map .time_line:before{
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: -13px;
+    width: 30px;
+    height: 30px;
+    border: solid 3px #c8f9ff;
+    border-radius: 50%;
+    background-color: #7fe9f7;
+}
+
+#project_map .project__todos{
+    width: 50%;
+    margin: 10px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#project_map .todo__wrapper{
+    width: calc(50% - 50px);
+    background-color: #fff;
+    border-top: solid 5px #7fe9f7;
+    border-radius: 5px;
+    padding: 0 10px;
+
+}
+
+#project_map .todo__wrapper h2{
+    text-align: center;
+}
+
+/* horizontal time line */
+#project_map .todo__wrapper:before{
+    position: absolute;
+    top: 10px;
+    right: -50px;
+    content: "";
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: #7fe9f7;
+}
+#project_map .todo__wrapper:nth-child(even):before{
+    top: 10px;
+    left: -50px;
+}
+
+/* todos layout */
+#project_map .todo__wrapper:nth-child(odd){
+    margin-bottom: 25px;
+}
+#project_map .todo__wrapper:nth-child(even){
+    margin: 25px 0 0 auto;
+}
+
 
 
 
