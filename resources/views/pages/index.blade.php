@@ -1,19 +1,14 @@
 @extends('layouts.layouts')
 
 @section('content')
-<div class="container">
-    <h1 class="p-3">To Do List</h1>
-
     <div class="container">
-        <a href="{{ route('todos.create') }}" class="btn btn-success btn-lg m-2">+Add</a>
 
         <h2>Schedules</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Title</th>
-                    <th scope="col">Start time</th>
-                    <th scope="col">End time</th>
+                    <th scope="col">Time</th>
                     <th scope="col">Category</th>
                     <th scope="col">Priority</th>
                     <th scope="col"></th>
@@ -24,17 +19,24 @@
                 @foreach($schedules as $schedule)
                 <tr>
                     <td>{{ $schedule->title }}</td>
-                    <td>{{ $schedule->start_time }}</td>
-                    <td>{{ $schedule->end_time }}</td>
+                    <td>
+                        {{ $schedule->start_time->format('Y/m/d H:i') }} ~ {{ $schedule->end_time->format('m/d H:i') }}
+                    </td>
                     <td>{{ $schedule->category }}</td>
                     <td>{{ $schedule->priority }}</td>
                     <td>
-                        <a href="{{ route('schedules.show', $schedule) }}" class="btn btn-info">More</a>
-                        <a href="{{ route('schedules.edit', $schedule) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('schedules.show', $schedule) }}" class="info-btn">
+                            <i class="fa-solid fa-circle-info fa-2x"></i>
+                        </a>
+                        <a href="{{ route('schedules.edit', $schedule) }}" class="edit-btn m-3">
+                            <i class="fa-solid fa-pen-clip fa-2x"></i>
+                        </a>
                         <form action="/schedules/{{ $schedule->id }}" method="POST" style="display: inline;">
                             @method("DELETE")
                             @csrf
-                            <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
+                            <button type="submit" class="edit-btn" onclick='return confirm("Are you sure?");'>
+                                <i class="fa-solid fa-trash-can fa-2x"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -64,12 +66,18 @@
                     <td>{{ $task->time_required }}</td>
                     <td>{{ $task->priority }}</td>
                     <td>
-                        <a href="{{ route('tasks.show', $task) }}" class="btn btn-info">More</a>
-                        <a href="{{ route('tasks.edit', $task) }}" class="btn btn-warning">Edit</a>
-                        <form action="/tasks/{{ $task->id }}" method="POST" style="display: inline;">
+                        <a href="{{ route('schedules.show', $schedule) }}" class="info-btn">
+                            <i class="fa-solid fa-circle-info fa-2x"></i>
+                        </a>
+                        <a href="{{ route('schedules.edit', $schedule) }}" class="edit-btn m-3">
+                            <i class="fa-solid fa-pen-clip fa-2x"></i>
+                        </a>
+                        <form action="/schedules/{{ $schedule->id }}" method="POST" style="display: inline;">
                             @method("DELETE")
                             @csrf
-                            <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
+                            <button type="submit" class="edit-btn" onclick='return confirm("Are you sure?");'>
+                                <i class="fa-solid fa-trash-can fa-2x"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -97,13 +105,18 @@
                     <td>{{ $project->category }}</td>
                     <td>{{ $project->priority }}</td>
                     <td>
-                        <a href="{{ route('projects.project_map', $project) }}" class="btn btn-info">More</a>
-                        <a href="{{ route('projects.edit', $project) }}" class="btn btn-warning">Edit</a>
-                        <form action="/projects/{{ $project->id }}" method="POST" style="display: inline;">
+                        <a href="{{ route('schedules.show', $schedule) }}" class="info-btn">
+                            <i class="fa-solid fa-circle-info fa-2x"></i>
+                        </a>
+                        <a href="{{ route('schedules.edit', $schedule) }}" class="edit-btn m-3">
+                            <i class="fa-solid fa-pen-clip fa-2x"></i>
+                        </a>
+                        <form action="/schedules/{{ $schedule->id }}" method="POST" style="display: inline;">
                             @method("DELETE")
                             @csrf
-                            <button type="submit" class="btn btn-danger" onclick='return confirm("Are you sure?");'>Delete</button>
-                        </form>
+                            <button type="submit" class="edit-btn" onclick='return confirm("Are you sure?");'>
+                                <i class="fa-solid fa-trash-can fa-2x"></i>
+                            </button>
                     </td>
                 </tr>
                 @endforeach
@@ -133,6 +146,4 @@
             </div>
         </div>
     </div>
-
-</div>
 @endsection
