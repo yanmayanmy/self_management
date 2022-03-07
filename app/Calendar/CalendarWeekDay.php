@@ -21,7 +21,7 @@ class CalendarWeekDay
 	 */
     function render()
     {
-        return '<p class="day">' . $this->carbon->format("j"). '</p>'; // j ... 0なしの日付
+        return '<a href="' . route('todos.daily_plan', $this->carbon) . '" class="day">' . $this->carbon->format("j"). '</a>'; // j ... 0なしの日付
     }
 
     function render_carbon()

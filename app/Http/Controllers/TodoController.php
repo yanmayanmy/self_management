@@ -8,6 +8,7 @@ use App\Models\Schedule;
 use App\Models\Task;
 use App\Calendar\CalendarView;
 use DateTime;
+use Carbon\Carbon;
 
 class TodoController extends Controller
 {
@@ -51,5 +52,24 @@ class TodoController extends Controller
     public function create(){
         $projects = Project::all();
         return view('pages.create', compact("projects"));
+    }
+
+    public function daily_plan(Carbon $carbon){
+
+        $date = $carbon->format("Y-m-d");
+
+        $projects = Project::whereDate('deadline', $date)    
+            ->orderBy('deadline', 'asc')
+            ->get();
+        $schedules = Schedule::whereDate('start_time', $date)    
+            ->orderBy('start_time', 'asc')
+            ->get();
+        $tasks = Task::whereDate('deadline', $date)    
+            ->orderBy('deadline', 'asc')
+            ->get();
+
+        // dd($tasks);
+
+        return view('pages.daily_plan', compact("projects", "schedules", "tasks"));
     }
 }

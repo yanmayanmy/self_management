@@ -133,17 +133,4 @@
                 // echo('</pre>');
     ?>
 
-    <!-- Calendar -->
-    <div class="container mb-3">
-        <div class="card">
-            <div class="card-header calendar-header">
-                <a class="btn" href="{{ url('/?date=') . $calendar->getPreviousMonth() }}">Prev</a>
-                <span>{{ $calendar->getTitle() }}</span>
-                <a class="btn" href="{{ url('/?date=') . $calendar->getNextMonth() }}">Next</a>
-            </div>
-            <div class="card-body">
-                {!! $calendar->render() !!}
-            </div>
-        </div>
-    </div>
 @endsection
