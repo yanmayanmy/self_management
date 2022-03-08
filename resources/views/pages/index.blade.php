@@ -3,8 +3,49 @@
 @section('content')
     <div class="container">
 
+        <!-- Project List -->
+        <h2>Projects</h2>
+        <table class="table table-striped todo-list">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach($projects as $project)
+                <tr>
+                    <td>{{ $project->title }}</td>
+                    <td>{{ ($project->deadline != NULL) ? $project->deadline->format('Y/M/d H:i') : NULL }}</td>
+                    <td>{{ $project->category }}</td>
+                    <td>{{ $project->priority }}</td>
+                    <td>
+                        <a href="{{ route('projects.project_map', $project) }}" class="info-btn">
+                            <i class="fa-solid fa-circle-info fa-2x"></i>
+                        </a>
+                        <a href="{{ route('projects.edit', $project) }}" class="edit-btn m-3">
+                            <i class="fa-solid fa-pen-clip fa-2x"></i>
+                        </a>
+                        <form action="/projects/{{ $project->id }}" method="POST" style="display: inline;">
+                            @method("DELETE")
+                            @csrf
+                            <button type="submit" class="edit-btn" onclick='return confirm("Are you sure?");'>
+                                <i class="fa-solid fa-trash-can fa-2x"></i>
+                            </button>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+
+        <!-- Schedule List -->
         <h2>Schedules</h2>
-        <table class="table table-striped">
+        <table class="table table-striped todo-list">
             <thead>
                 <tr>
                     <th scope="col">Title</th>
@@ -44,8 +85,9 @@
             </tbody>
         </table>
 
+        <!-- Task List -->
         <h2>Tasks</h2>
-        <table class="table table-striped">
+        <table class="table table-striped todo-list">
             <thead>
                 <tr>
                     <th scope="col">Title</th>
@@ -83,49 +125,10 @@
                 </tr>
                 @endforeach
             </tbody>
-        </table>
-
-        <h2>Projects</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Deadline</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Priority</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach($projects as $project)
-                <tr>
-                    <td>{{ $project->title }}</td>
-                    <td>{{ ($project->deadline != NULL) ? $project->deadline->format('Y/M/d H:i') : NULL }}</td>
-                    <td>{{ $project->category }}</td>
-                    <td>{{ $project->priority }}</td>
-                    <td>
-                        <a href="{{ route('schedules.show', $schedule) }}" class="info-btn">
-                            <i class="fa-solid fa-circle-info fa-2x"></i>
-                        </a>
-                        <a href="{{ route('schedules.edit', $schedule) }}" class="edit-btn m-3">
-                            <i class="fa-solid fa-pen-clip fa-2x"></i>
-                        </a>
-                        <form action="/schedules/{{ $schedule->id }}" method="POST" style="display: inline;">
-                            @method("DELETE")
-                            @csrf
-                            <button type="submit" class="edit-btn" onclick='return confirm("Are you sure?");'>
-                                <i class="fa-solid fa-trash-can fa-2x"></i>
-                            </button>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-
+        </table>       
     </div>
 
-    <!-- debug -->
+    <!-- Debug -->
     <?php
                 // echo('<pre>');
                 // var_dump($task);

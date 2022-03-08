@@ -35,6 +35,16 @@ button {
     background: -webkit-linear-gradient(to right, #00CDAC, #02AAB0);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #00CDAC, #02AAB0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+th, td {
+    flex: 1;
+}
+
 /*************************************
 Navbar
 *************************************/
@@ -115,25 +125,33 @@ Index
 
 
 /***
+* Todo List
+*/
+.todo-list td, th{
+    text-align: center;
+}
+
+.todo-list td:last-child {
+    text-align: right;
+}
+
+
+/***
 * Calendar
 */
-.calendar-header{
+.calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#calendar tr {
-    display: flex;
-}
+
 
 #calendar .week {
     min-height: 110px;
 }
 
-#calendar th, td {
-    flex: 1;
-}
+
 
 #calendar .day {
     padding: 0;
