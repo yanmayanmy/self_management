@@ -54,21 +54,20 @@ class TodoController extends Controller
         return view('pages.create', compact("projects"));
     }
 
-    public function daily_plan(Carbon $carbon){
-
-        $date = $carbon->format("Y-m-d");
+    public function daily_plan($date){
 
         $projects = Project::whereDate('deadline', $date)    
             ->orderBy('deadline', 'asc')
             ->get();
-        $schedules = Schedule::whereDate('start_time', $date)    
+        $schedules = Schedule::whereDate('start_time', "<=", $date)
+            ->whereDate('end_time', ">=", $date) 
             ->orderBy('start_time', 'asc')
             ->get();
         $tasks = Task::whereDate('deadline', $date)    
             ->orderBy('deadline', 'asc')
             ->get();
 
-        // dd($tasks);
+        // dd($date); 
 
         return view('pages.daily_plan', compact("projects", "schedules", "tasks"));
     }

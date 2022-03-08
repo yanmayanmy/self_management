@@ -21,7 +21,7 @@
     <!-- Navbar Section -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="#home" id="navbar-logo" class="theme">TODOS</a>
+            <a href="{{ route('todos.index') }}" id="navbar-logo" class="theme-color">TODOS</a>
             <div class="navbar-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -29,16 +29,16 @@
             </div>
             <ul class="navbar-menu">
                 <li class="navbar-item">
-                    <a href="#home" class="navbar-links" id="home-page">HOME</a>
+                    <a href="#" class="navbar-links" id="project-list">PROJECT</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#about" class="navbar-links" id="about-page">PROJECT</a>
+                    <a href="3" class="navbar-links" id="priority-list">PRIORITY</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#services" class="navbar-links" id="services-page">CATEGORY</a>
+                    <a href="#" class="navbar-links" id="category-list">CATEGORY</a>
                 </li>
                 <li>
-                    <a href="{{ route('todos.create') }}" class="btn theme btn-lg m-2">
+                    <a href="{{ route('todos.create') }}" class="btn theme-color btn-lg m-2">
                         <i class="fa-regular fa-calendar-plus" style="color: #fff;"></i>
                     </a>
                 </li>
