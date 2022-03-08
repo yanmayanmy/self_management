@@ -55,16 +55,16 @@ class CalendarView {
 						$endDate = $schedule->end_time->setTime(0, 0, 0);
 						
 						if($day->render_carbon()->gte($startDate) && $day->render_carbon()->lte($endDate)){
-							$html[] = '<li>';
+							$html[] = '<li><a href="' . route('schedules.show', $schedule) . '">';
 							$html[] = $schedule->title;
-							$html[] = '</li>';
+							$html[] = '</li></a>';
 						}
 					}
 				}
 				foreach($this->todos['tasks'] as $task){
 					if($task->deadline != NULL){
 						if($day->render_carbon()->isSameDay($task->deadline)){
-							$html[] = '<li>';
+							$html[] = '<li><a href="' . route('tasks.show', $task) . '">';
 							$html[] = $task->title;
 							$html[] = '</li>';
 						}
