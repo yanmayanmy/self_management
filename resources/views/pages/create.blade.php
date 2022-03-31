@@ -51,10 +51,10 @@
                     <label for="end_time">End time</label>
                     <input type="datetime-local" name="end_time" class="form-control">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="priority">Priority</label>
                     <input type="int" name="priority" class="form-control">
-                </div>
+                </div> -->
                 
                 <button type="submit" class="btn btn-primary m-2">Add</button>
                 <a href="{{ route('todos.index') }}" class="btn btn-secondary m-2">Back</a>
@@ -94,8 +94,25 @@
                     <input type="int" name="time_required" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="priority">Priority</label>
-                    <input type="int" name="priority" class="form-control">
+                    <label >Priority</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="priority" id="high">
+                        <label class="form-check-label" for="high">
+                            High
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="priority" id="mid">
+                        <label class="form-check-label" for="mid">
+                            Mid
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="priority" id="low">
+                        <label class="form-check-label" for="low">
+                            Low
+                        </label>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary m-2">Add</button>
@@ -121,10 +138,10 @@
                     <label for="deadline">Deadline</label>
                     <input type="datetime-local" name="deadline" class="form-control">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="priority">Priority</label>
                     <input type="int" name="priority" class="form-control">
-                </div>
+                </div> -->
 
                 <button type="submit" class="btn btn-primary m-2">Add</button>
                 <a href="{{ route('todos.index') }}" class="btn btn-secondary m-2">Top</a>

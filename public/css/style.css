@@ -9,11 +9,18 @@ General
     scroll-behavior: smooth;
 }
 
+/**
+* #d5cdc8
+* #d3b4af
+* #a27e73
+* #44281e
+*/
+
 body {
     display: flex;
     flex-flow: column;
     min-height: 100vh;
-    background-color: #EDF2F7;
+    background-color: #d5cdc8;
 }
 
 
@@ -28,12 +35,13 @@ a {
 
 button {
     border: none;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .theme-color {
-    background: #02AAB0;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #00CDAC, #02AAB0);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #00CDAC, #02AAB0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #a27e73;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a27e73, #44281e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a27e73, #44281e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 tr {
@@ -49,7 +57,7 @@ th, td {
 Navbar
 *************************************/
 .navbar {
-    background-color: #E1E6EA;
+    background-color: #d3b4af;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -161,6 +169,13 @@ Index
     margin: 0;
 }
 
+/***
+* Font Awsome logos
+*/
+.fa-pen-clip, .fa-circle-info, .fa-trash {
+    color: #44281e;
+}
+
 /*************************************
 Edit
 *************************************/
@@ -265,7 +280,7 @@ Project Map
 Footer
 *************************************/
 footer {
-    background-color: #EBEDEF;
+    background-color: #d3b4af;
     display: flex;
     justify-content: center;
     align-items: center;

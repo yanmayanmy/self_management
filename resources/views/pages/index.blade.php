@@ -34,7 +34,7 @@
                             @method("DELETE")
                             @csrf
                             <button type="submit" class="edit-btn" onclick='return confirm("Are you sure?");'>
-                                <i class="fa-solid fa-trash-can fa-2x"></i>
+                                <i class="fa-solid fa-trash fa-2x"></i>
                             </button>
                     </td>
                 </tr>
@@ -76,7 +76,7 @@
                             @method("DELETE")
                             @csrf
                             <button type="submit" class="edit-btn" onclick='return confirm("Are you sure?");'>
-                                <i class="fa-solid fa-trash-can fa-2x"></i>
+                            <i class="fa-solid fa-trash fa-2x"></i>
                             </button>
                         </form>
                     </td>
@@ -118,7 +118,7 @@
                             @method("DELETE")
                             @csrf
                             <button type="submit" class="edit-btn" onclick='return confirm("Are you sure?");'>
-                                <i class="fa-solid fa-trash-can fa-2x"></i>
+                                <i class="fa-solid fa-trash fa-2x"></i>
                             </button>   
                         </form>
                     </td>
