@@ -46,4 +46,10 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route('todos.index');
     }
+
+    function editPriority(Task $task){
+        $tasks['task_list'] = Task::all();
+        $tasks['adding_task'] = $task;
+        return view('pages.edit_priority', compact('tasks'));
+    }
 }

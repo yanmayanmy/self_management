@@ -54,7 +54,7 @@ class TodoController extends Controller
         return view('pages.create', compact("projects"));
     }
 
-    public function daily_plan($date){
+    public function dailyPlan($date){
 
         $projects = Project::whereDate('deadline', $date)    
             ->orderBy('deadline', 'asc')

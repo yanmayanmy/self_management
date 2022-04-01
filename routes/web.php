@@ -22,7 +22,7 @@ use App\Http\Controllers\TaskController;
 Route::get("/", [App\Http\Controllers\TodoController::class, 'index']); //Route page
 Route::get("/todos", [App\Http\Controllers\TodoController::class, 'index'])->name('todos.index'); // Top page
 Route::get("/todos/create", [App\Http\Controllers\TodoController::class, 'create'])->name('todos.create');
-Route::get("/todos/daily_plan/{todos}", [App\Http\Controllers\TodoController::class, 'daily_plan'])->name('todos.daily_plan');
+Route::get("/todos/daily_plan/{todos}", [App\Http\Controllers\TodoController::class, 'dailyPlan'])->name('todos.daily_plan');
 
 // It was pain in the a** dealing show method in one controller due to the data type.
 // Thus, I made controller for each table.
@@ -40,6 +40,7 @@ Route::get("/tasks/{task}", [App\Http\Controllers\TaskController::class, 'show']
 Route::patch("/tasks/{task}", [App\Http\Controllers\TaskController::class, 'update'])->name('tasks.update');
 Route::delete("/tasks/{task}", [App\Http\Controllers\TaskController::class, 'destroy'])->name('tasks.destroy');
 Route::get("/tasks/{task}/edit", [App\Http\Controllers\TaskController::class, 'edit'])->name('tasks.edit');
+Route::get("/tasks/{task}/edit/priority", [App\Http\Controllers\TaskController::class, 'editPriority'])->name('tasks.edit');
 
 // Project
 Route::post('/projects', [App\Http\Controllers\ProjectController::class, 'store'])->name('projects.store');
