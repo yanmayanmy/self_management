@@ -50,3 +50,27 @@ function getDragAfterElement(container, y){
   }, { offset : Number.NEGATIVE_INFINITY }).element;
 
 }
+
+/**
+* Scroll Function
+* Which turned out that this work was in vain... :(
+  I'll keep it anyway :)
+*/
+const scrollDownArea = document.querySelector('#scroll-down');
+let scrollOptions = {
+  left: 0,
+  top: 0,
+  behavior: 'smooth',
+}
+scrollDownArea.addEventListener('dragover', e =>{
+  e.preventDefault() //change the cursor type
+  
+  //Calculating the ratio of cursors Y cordinate in the scroll-down div.
+  //Height of scroll-down div is 100%.
+  let scrollDownAreaHeight = document.querySelector('#scroll-down').clientHeight;
+  
+  scrollOptions['top'] = (e.clientY - window.innerHeight * 0.9) / scrollDownAreaHeight * 100;
+
+  // console.log(scrollOptions);
+  window.scrollBy(scrollOptions);
+})

@@ -289,6 +289,29 @@ Edit priority
     opacity: 0.5;
 }
 
+.high-priority {
+    background-color: rgb(255, 179, 207);
+    padding: 20px;
+}
+
+.mid-priority {
+    background-color: rgb(246, 255, 179);
+    padding: 20px;
+}
+
+.low-priority {
+    background-color: rgb(179, 239, 255);
+    padding: 20px;
+}
+
+#scroll-down {
+    width: 100%;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    bottom: 0;
+}
+
 /*************************************
 Footer
 *************************************/
