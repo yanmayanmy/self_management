@@ -20,6 +20,7 @@ class CreateTasksTable extends Migration
             $table->string("detail")->nullable();
             $table->string("category")->nullable();
             $table->datetime("deadline")->nullable();
+            $table->integer("priority_level")->nullable();
             $table->integer("priority")->nullable();
             $table->integer("time_required")->nullable();
             $table->timestamps();

@@ -96,19 +96,19 @@
                 <div class="form-group">
                     <label >Priority</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="priority" id="high">
+                        <input class="form-check-input" type="radio" name="priority" id="high" value="1">
                         <label class="form-check-label" for="high">
                             High
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="priority" id="mid">
+                        <input class="form-check-input" type="radio" name="priority" id="mid" value="2">
                         <label class="form-check-label" for="mid">
                             Mid
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="priority" id="low">
+                        <input class="form-check-input" type="radio" name="priority" id="low" value="3">
                         <label class="form-check-label" for="low">
                             Low
                         </label>

@@ -5,17 +5,23 @@
 
     <div class="container high-priority">
         @foreach($tasks['task_list'] as $task)
-            <p class="draggable" id="{{ $task->id }}" draggable="true" scroll="true">{{ $task->title }}</p>
+            @if($task['priority_level'] == 1)
+                <p class="draggable" id="{{ $task->id }}" draggable="true" scroll="true">{{ $task->title }}</p>
+            @endif
         @endforeach
     </div>
     <div class="container mid-priority">
         @foreach($tasks['task_list'] as $task)
-            <p class="draggable" id="{{ $task->id }}" draggable="true">{{ $task->title }}</p>
+        @if($task['priority_level'] == 2)
+                <p class="draggable" id="{{ $task->id }}" draggable="true" scroll="true">{{ $task->title }}</p>
+            @endif
         @endforeach
     </div>
     <div class="container low-priority">
         @foreach($tasks['task_list'] as $task)
-            <p class="draggable" id="{{ $task->id }}" draggable="true">{{ $task->title }}</p>
+            @if($task['priority_level'] == 3)
+                <p class="draggable" id="{{ $task->id }}" draggable="true" scroll="true">{{ $task->title }}</p>
+            @endif
         @endforeach
     </div>
 
