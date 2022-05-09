@@ -52,4 +52,9 @@ class TaskController extends Controller
         $tasks['adding_task'] = $task;
         return view('pages.edit_priority', compact('tasks'));
     }
+
+    function prioritize(Request $req, Task $task){
+        // code ...
+        $task->save();
+    }
 }
