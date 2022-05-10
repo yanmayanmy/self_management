@@ -39,9 +39,12 @@ body {
 
 
 a {
-    color: #000;
+    color: $text-color;
     text-decoration: none;
 }
+// a:link, a:visited, a:hover, a:active {
+//     color: rgba(0, 0, 0, 0);
+// }
 
 .relative {
     position: relative;
@@ -50,12 +53,6 @@ a {
 button {
     border: none;
     background-color: rgba(0, 0, 0, 0);
-}
-
-.theme-color {
-    background: #a27e73;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #a27e73, #44281e);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #a27e73, #44281e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 tr {
@@ -71,7 +68,7 @@ th, td {
 Navbar
 *************************************/
 .navbar {
-    background-color: #d3b4af;
+    background-color: $theme1;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -80,54 +77,58 @@ Navbar
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    a:link, a:visited, a:hover, a:active {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 50px;
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+    }
+
+    &__item {
+        height: 80px;
+    }
+    
+    &__item-link {
+        @include gradient-color;
+        @include gradient-setting;
+        width: 125px;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+
+    &__logo {
+        @include gradient-color;
+        @include gradient-setting;
+        font-size: 2rem;
+        z-index: 100;
+    }
+
+    &__item-link--create {
+        @include gradient-color;
+    }
 }
 
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    z-index: 1;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 50px;
-}
 
-.navbar-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-}
 
-#navbar-logo {
-    background-size: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    color: transparent;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    z-index: 100;
-}
 
-.navbar-item {
-    height: 80px;
-}
 
-.navbar-links {
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 125px;
-    text-decoration: none;
-    height: 100%;
-    transition: all 0.3s ease;
-}
+
 
 /*************************************
 Main
@@ -187,7 +188,7 @@ Index
 * Font Awsome logos
 */
 .fa-pen-clip, .fa-circle-info, .fa-trash {
-    color: #44281e;
+    color: $accent;
 }
 
 /*************************************
@@ -212,80 +213,85 @@ Project Map
 *************************************/
 #project_map {
     margin-top: 100px;
+
+    .project-goal{
+        text-align: center;
+        width: 40%;
+        height: 56px;
+        margin: 0 auto;
+        border-bottom: solid 5px $accent;
+    }
+
+    .time_line{
+        position: absolute;
+        height: calc(100% - 56px - 15px);
+        width: 3px;
+        left: 50%;
+        background: $accent;
+        
+        &:before{
+            position: absolute;
+            content: "";
+            top: 100%;
+            left: -13px;
+            width: 30px;
+            height: 30px;
+            border: solid 3px $accent;
+            border-radius: 50%;
+            background-color: $theme1;
+        }
+    }
+
+    .project__todos{
+        width: 50%;
+        margin: 10px auto 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+        
+    .todo__wrapper{
+        width: calc(50% - 50px);
+        background-color: $theme1;
+        border-top: solid 5px $accent;
+        border-radius: 5px;
+        padding: 0 10px;
+
+    }
+    .todo__wrapper h2{
+        text-align: center;
+    }
+
+    /* horizontal time line */
+    .todo__wrapper:before{
+        position: absolute;
+        top: 10px;
+        right: -50px;
+        content: "";
+        display: block;
+        width: 36px;
+        height: 3px;
+        background: $accent;
+    }
+    .todo__wrapper:nth-child(even):before{
+        top: 10px;
+        left: -50px;
+    }
+
+    /* todos layout */
+    .todo__wrapper:nth-child(odd){
+        margin-bottom: 25px;
+    }
+    .todo__wrapper:nth-child(even){
+        margin: 25px 0 0 auto;
+    }
 }
 
-#project_map .project-goal{
-    text-align: center;
-    width: 40%;
-    height: 56px;
-    margin: 0 auto;
-    border-bottom: solid 5px #7fe9f7;
-}
 
-#project_map .time_line{
-    position: absolute;
-    height: calc(100% - 56px - 15px);
-    width: 3px;
-    left: 50%;
-    background: #7fe9f7;
-}
 
-#project_map .time_line:before{
-    position: absolute;
-    content: "";
-    top: 100%;
-    left: -13px;
-    width: 30px;
-    height: 30px;
-    border: solid 3px #c8f9ff;
-    border-radius: 50%;
-    background-color: #7fe9f7;
-}
 
-#project_map .project__todos{
-    width: 50%;
-    margin: 10px auto 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
-#project_map .todo__wrapper{
-    width: calc(50% - 50px);
-    background-color: #fff;
-    border-top: solid 5px #7fe9f7;
-    border-radius: 5px;
-    padding: 0 10px;
-
-}
-
-#project_map .todo__wrapper h2{
-    text-align: center;
-}
-
-/* horizontal time line */
-#project_map .todo__wrapper:before{
-    position: absolute;
-    top: 10px;
-    right: -50px;
-    content: "";
-    display: block;
-    width: 36px;
-    height: 3px;
-    background: #7fe9f7;
-}
-#project_map .todo__wrapper:nth-child(even):before{
-    top: 10px;
-    left: -50px;
-}
-
-/* todos layout */
-#project_map .todo__wrapper:nth-child(odd){
-    margin-bottom: 25px;
-}
-#project_map .todo__wrapper:nth-child(even){
-    margin: 25px 0 0 auto;
-}
 
 /*************************************
 Edit priority
@@ -294,7 +300,7 @@ Edit priority
     background-color: #fff;
     color: #000;
     padding: 1rem;
-    border: solid 5px #a27e73;
+    border: solid 5px $theme2;
     cursor: move;
     border-radius: 5px;
 }
@@ -330,7 +336,7 @@ Edit priority
 Footer
 *************************************/
 footer {
-    background-color: #d3b4af;
+    background-color: $theme1;
     display: flex;
     justify-content: center;
     align-items: center;

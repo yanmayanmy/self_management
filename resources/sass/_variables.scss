@@ -6,6 +6,26 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
-$theme: #a27e73;
 $background: #d5cdc8;
+$text-color: #272727;
+$theme1: #d3b4af;
+$theme2: #a27e73;
 $accent: #44281e;
+@mixin gradient-color {
+    background: $background;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $accent, $theme2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $accent, $theme2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+}
+@mixin gradient-setting{
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+}

@@ -1,5 +1,5 @@
-@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+@charset "UTF-8";
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -11311,7 +11311,7 @@ body {
 }
 
 a {
-  color: #000;
+  color: #272727;
   text-decoration: none;
 }
 
@@ -11322,14 +11322,6 @@ a {
 button {
   border: none;
   background-color: rgba(0, 0, 0, 0);
-}
-
-.theme-color {
-  background: #a27e73;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #a27e73, #44281e);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 tr {
@@ -11356,8 +11348,10 @@ Navbar
   top: 0;
   z-index: 1000;
 }
-
-.navbar-container {
+.navbar a:link, .navbar a:visited, .navbar a:hover, .navbar a:active {
+  color: rgba(0, 0, 0, 0);
+}
+.navbar__container {
   display: flex;
   justify-content: space-between;
   height: 100%;
@@ -11367,15 +11361,22 @@ Navbar
   margin: 0 auto;
   padding: 0 50px;
 }
-
-.navbar-menu {
+.navbar__menu {
   display: flex;
   align-items: center;
   list-style: none;
   margin: 0;
 }
-
-#navbar-logo {
+.navbar__item {
+  height: 80px;
+}
+.navbar__item-link {
+  background: #d5cdc8;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #44281e, #a27e73);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: none;
   background-size: 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -11383,25 +11384,40 @@ Navbar
   color: transparent;
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  width: 125px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+.navbar__logo {
+  background: #d5cdc8;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #44281e, #a27e73);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: none;
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   z-index: 100;
 }
-
-.navbar-item {
-  height: 80px;
-}
-
-.navbar-links {
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 125px;
-  text-decoration: none;
-  height: 100%;
-  transition: all 0.3s ease;
+.navbar__item-link--create {
+  background: #d5cdc8;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #44281e, #a27e73);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: none;
 }
 
 /*************************************
@@ -11473,24 +11489,23 @@ Project Map
 *************************************/
 #project_map {
   margin-top: 100px;
+  /* horizontal time line */
+  /* todos layout */
 }
-
 #project_map .project-goal {
   text-align: center;
   width: 40%;
   height: 56px;
   margin: 0 auto;
-  border-bottom: solid 5px #7fe9f7;
+  border-bottom: solid 5px #44281e;
 }
-
 #project_map .time_line {
   position: absolute;
   height: calc(100% - 56px - 15px);
   width: 3px;
   left: 50%;
-  background: #7fe9f7;
+  background: #44281e;
 }
-
 #project_map .time_line:before {
   position: absolute;
   content: "";
@@ -11498,11 +11513,10 @@ Project Map
   left: -13px;
   width: 30px;
   height: 30px;
-  border: solid 3px #c8f9ff;
+  border: solid 3px #44281e;
   border-radius: 50%;
-  background-color: #7fe9f7;
+  background-color: #d3b4af;
 }
-
 #project_map .project__todos {
   width: 50%;
   margin: 10px auto 0 auto;
@@ -11510,20 +11524,16 @@ Project Map
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 #project_map .todo__wrapper {
   width: calc(50% - 50px);
-  background-color: #fff;
-  border-top: solid 5px #7fe9f7;
+  background-color: #d3b4af;
+  border-top: solid 5px #44281e;
   border-radius: 5px;
   padding: 0 10px;
 }
-
 #project_map .todo__wrapper h2, #project_map .todo__wrapper .h2 {
   text-align: center;
 }
-
-/* horizontal time line */
 #project_map .todo__wrapper:before {
   position: absolute;
   top: 10px;
@@ -11532,19 +11542,15 @@ Project Map
   display: block;
   width: 36px;
   height: 3px;
-  background: #7fe9f7;
+  background: #44281e;
 }
-
 #project_map .todo__wrapper:nth-child(even):before {
   top: 10px;
   left: -50px;
 }
-
-/* todos layout */
 #project_map .todo__wrapper:nth-child(odd) {
   margin-bottom: 25px;
 }
-
 #project_map .todo__wrapper:nth-child(even) {
   margin: 25px 0 0 auto;
 }

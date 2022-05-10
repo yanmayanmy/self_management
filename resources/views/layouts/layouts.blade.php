@@ -15,25 +15,25 @@
 
     <!-- Navbar Section -->
     <nav class="navbar">
-        <div class="navbar-container">
-            <a href="{{ route('todos.index') }}" id="navbar-logo" class="theme-color">TODOS</a>
-            <div class="navbar-toggle" id="mobile-menu">
+        <div class="navbar__container">
+            <a href="{{ route('todos.index') }}" class="navbar__logo theme-color">TODOS</a>
+            <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <ul class="navbar-menu">
-                <li class="navbar-item">
-                    <a href="#" class="navbar-links" id="project-list">PROJECT</a>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#" class="navbar__item-link" id="project-list">PROJECT</a>
                 </li>
-                <li class="navbar-item">
-                    <a href="3" class="navbar-links" id="priority-list">PRIORITY</a>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__item-link" id="priority-list">PRIORITY</a>
                 </li>
-                <li class="navbar-item">
-                    <a href="#" class="navbar-links" id="category-list">CATEGORY</a>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__item-link" id="category-list">CATEGORY</a>
                 </li>
                 <li>
-                    <a href="{{ route('todos.create') }}" class="btn theme-color btn-lg m-2">
+                    <a href="{{ route('todos.create') }}" class="btn btn-lg m-2 navbar__item-link--create">
                         <i class="fa-regular fa-calendar-plus" style="color: #fff;"></i>
                     </a>
                 </li>
