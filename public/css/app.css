@@ -11297,17 +11297,11 @@ General
   scroll-behavior: smooth;
 }
 
-/**
-* #d5cdc8
-* #d3b4af
-* #a27e73
-* #44281e
-*/
 body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  background-color: #d5cdc8;
+  background-color: #dfe1e2;
 }
 
 a {
@@ -11337,7 +11331,7 @@ th, td {
 Navbar
 *************************************/
 .navbar {
-  background-color: #d3b4af;
+  background-color: #374251;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -11371,10 +11365,10 @@ Navbar
   height: 80px;
 }
 .navbar__item-link {
-  background: #d5cdc8;
+  background: #dfe1e2;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #44281e, #a27e73);
+  background: linear-gradient(to right, #31a9c3, #b8bec0);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border: none;
   background-size: 100%;
@@ -11392,10 +11386,10 @@ Navbar
   transition: all 0.3s ease;
 }
 .navbar__logo {
-  background: #d5cdc8;
+  background: #dfe1e2;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #44281e, #a27e73);
+  background: linear-gradient(to right, #31a9c3, #b8bec0);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border: none;
   background-size: 100%;
@@ -11412,10 +11406,10 @@ Navbar
   z-index: 100;
 }
 .navbar__item-link--create {
-  background: #d5cdc8;
+  background: #dfe1e2;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #44281e, #a27e73);
+  background: linear-gradient(to right, #31a9c3, #b8bec0);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border: none;
 }
@@ -11454,21 +11448,19 @@ Index
 #calendar .week {
   min-height: 110px;
 }
-
 #calendar .day {
   padding: 0;
   margin: 0;
 }
-
 #calendar ul {
   margin: 0;
 }
 
-/***
-* Font Awsome logos
-*/
+/*************************************
+Font Awsome logos
+*************************************/
 .fa-pen-clip, .fa-circle-info, .fa-trash {
-  color: #44281e;
+  color: #374251;
 }
 
 /*************************************
@@ -11497,14 +11489,14 @@ Project Map
   width: 40%;
   height: 56px;
   margin: 0 auto;
-  border-bottom: solid 5px #44281e;
+  border-bottom: solid 5px #31a9c3;
 }
 #project_map .time_line {
   position: absolute;
   height: calc(100% - 56px - 15px);
   width: 3px;
   left: 50%;
-  background: #44281e;
+  background: #31a9c3;
 }
 #project_map .time_line:before {
   position: absolute;
@@ -11513,9 +11505,9 @@ Project Map
   left: -13px;
   width: 30px;
   height: 30px;
-  border: solid 3px #44281e;
+  border: solid 3px #31a9c3;
   border-radius: 50%;
-  background-color: #d3b4af;
+  background-color: #b8bec0;
 }
 #project_map .project__todos {
   width: 50%;
@@ -11526,8 +11518,8 @@ Project Map
 }
 #project_map .todo__wrapper {
   width: calc(50% - 50px);
-  background-color: #d3b4af;
-  border-top: solid 5px #44281e;
+  background-color: #b8bec0;
+  border-top: solid 5px #31a9c3;
   border-radius: 5px;
   padding: 0 10px;
 }
@@ -11542,7 +11534,7 @@ Project Map
   display: block;
   width: 36px;
   height: 3px;
-  background: #44281e;
+  background: #31a9c3;
 }
 #project_map .todo__wrapper:nth-child(even):before {
   top: 10px;
@@ -11559,10 +11551,10 @@ Project Map
 Edit priority
 *************************************/
 .draggable {
-  background-color: #fff;
-  color: #000;
+  background-color: #dfe1e2;
+  color: #272727;
   padding: 1rem;
-  border: solid 5px #a27e73;
+  border: solid 5px #374251;
   cursor: move;
   border-radius: 5px;
 }
@@ -11598,15 +11590,14 @@ Edit priority
 Footer
 *************************************/
 footer {
-  background-color: #d3b4af;
+  background-color: #b8bec0;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 50px;
 }
-
 footer p {
-  color: #000;
+  color: #272727;
   margin: 0;
 }
