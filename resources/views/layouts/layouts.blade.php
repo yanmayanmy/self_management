@@ -14,15 +14,12 @@
 <body>
 
     <!-- Navbar Section -->
-    <nav class="navbar">
-        <div class="navbar__container">
-            <a href="{{ route('todos.index') }}" class="navbar__logo theme-color">TODOS</a>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+    <header>
+        <nav class="navbar">
             <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="{{ route('todos.index') }}" class="navbar__item-link" id="project-list">TOP</a>
+                </li>
                 <li class="navbar__item">
                     <a href="#" class="navbar__item-link" id="project-list">PROJECT</a>
                 </li>
@@ -38,8 +35,13 @@
                     </a>
                 </li>
             </ul>
+        </nav>
+        
+        <div class="menu-btn" id="mobile-menu">
+                <span class="bar"></span>
         </div>
-    </nav>
+    </header>
+    
 
     <!-- Main contents -->
     <main class="main-container">

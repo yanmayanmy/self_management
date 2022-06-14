@@ -11,13 +11,14 @@ $text-color: #272727;
 $theme1: #b8bec0;
 $theme2: #374251;
 $accent: #31a9c3;
+
 @mixin gradient-color {
     background: $background;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, $accent, $theme1);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, $accent, $theme1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border: none;
 }
-@mixin gradient-setting{
+@mixin gradient-clip{
     background-size: 100%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -28,4 +29,32 @@ $accent: #31a9c3;
     justify-content: center;
     cursor: pointer;
     text-decoration: none;
+}
+
+@mixin transition-ease {
+    transition: all 0.5s ease-in-out;
+}
+
+@function set-text-color($color) {
+    @if(lightness($color) > 40%){
+        @return #000;
+    } @else {
+        @return #fff;
+    }
+}
+
+@mixin media-md {
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}
+@mixin media-lg {
+    @media screen and (max-width: 1024px){
+        @content;
+    }
+}
+@mixin media-xl {
+    @media screen and (max-width: 1600px){
+        @content;
+    }
 }

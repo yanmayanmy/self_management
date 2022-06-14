@@ -1,51 +1,26 @@
-// Reset
-// @import 'reset';
+
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'config';
+@import 'reset';
+@import 'menu';
+@import 'responsive';
 
-
-/*************************************
-General
-*************************************/
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Kumbh sans', sans-serif;
-    scroll-behavior: smooth;
-}
 
 body {
     display: flex;
     flex-flow: column;
     min-height: 100vh;
     background-color: $background;
+    // margin-top: 80px;
 }
-
-
-a {
-    color: $text-color;
-    text-decoration: none;
-}
-// a:link, a:visited, a:hover, a:active {
-//     color: rgba(0, 0, 0, 0);
-// }
 
 .relative {
     position: relative;
-}
-
-button {
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
 }
 
 tr {
@@ -58,82 +33,12 @@ th, td {
 }
 
 /*************************************
-Navbar
-*************************************/
-.navbar {
-    background-color: $theme2;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    a:link, a:visited, a:hover, a:active {
-        color: rgba(0, 0, 0, 0);
-    }
-
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        height: 100%;
-        z-index: 1;
-        width: 100%;
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 50px;
-    }
-
-    &__menu {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        margin: 0;
-    }
-
-    &__item {
-        height: 80px;
-    }
-    
-    &__item-link {
-        @include gradient-color;
-        @include gradient-setting;
-        width: 125px;
-        height: 100%;
-        transition: all 0.3s ease;
-    }
-
-    &__logo {
-        @include gradient-color;
-        @include gradient-setting;
-        font-size: 2rem;
-        z-index: 100;
-    }
-
-    &__item-link--create {
-        @include gradient-color;
-    }
-}
-
-
-
-
-
-
-
-/*************************************
 Main
 *************************************/
 main {
     flex: 1;
     margin-top: 20px;
 }
-
-
-
-
 
 /*************************************
 Index
